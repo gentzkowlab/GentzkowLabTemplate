@@ -1,7 +1,8 @@
 #!/bin/bash   
-
-#!/bin/bash   
 set -e
+
+# Source check_setup.sh to perform environment checks
+source ../check_setup.sh
 
 # User-defined constants
 REPO_ROOT=..
