@@ -1,5 +1,75 @@
-Executing: python3 wrangle_data.py >> "../output/make.log"
-Traceback (most recent call last):
-  File "/Users/shiqiyang/Documents/github_folders/GentzkowLabTemplate/1_data/source/wrangle_data.py", line 5, in <module>
-    import pandas as pd
-ModuleNotFoundError: No module named 'pandas'
+── Attaching core tidyverse packages ──────────────────────── tidExecuting: StataMP wrangle_data.do >> "../output/make.log"
+.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      18.0
+___/   /   /___/   /   /___/       MP—Parallel Edition
+
+ Statistics and Data Science       Copyright 1985-2023 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-STATA-PC        https://www.stata.com
+                                   979-696-4600        stata@stata.com
+
+Stata license: Unlimited-user 4-core , expiring 21 Jul 2024
+Serial number: 501809310346
+  Licensed to: Shiqi Yang
+               Stanford University
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. More than 2 billion observations are allowed; see help obs_advice.
+      4. Maximum number of variables is set to 5,000 but can be increased; see help set_maxvar.
+
+. do wrangle_data.do 
+
+. * =============================================================================
+. * Short description of script's purpose
+. * =============================================================================
+. 
+. clear all
+
+. adopath + "../../lib/stata"
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/shiqiyang/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/shiqiyang/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "../../lib/stata"
+
+. 
+. * =============================================================================
+. 
+. program main
+  1.     insheet using "../input/mpg.csv", comma clear
+  2.     clean_data
+  3.     save "../output/mpg.dta", replace
+  4. end
+
+. 
+. program clean_data
+  1.     di ""
+  2.     * Some data wrangling steps here
+. end
+
+. 
+. * Execute
+. main
+(11 vars, 234 obs)
+
+(file ../output/mpg.dta not found)
+file ../output/mpg.dta saved
+
+. 
+end of do-file
