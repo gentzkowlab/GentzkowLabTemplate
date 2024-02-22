@@ -1,2 +1,5 @@
-Error in library(tidyverse) : there is no package called ‘tidyverse’
-Execution halted
+Executing: python3 analyze_data.py >> "../output/make.log"
+Traceback (most recent call last):
+  File "/Users/shiqiyang/Documents/github_folders/GentzkowLabTemplate/2_analysis/source/analyze_data.py", line 1, in <module>
+    import pandas as pd
+ModuleNotFoundError: No module named 'pandas'
