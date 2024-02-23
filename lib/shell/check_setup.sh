@@ -1,7 +1,8 @@
 #!/bin/bash
 
-export REPO_ROOT="../../"
-echo $(realpath "$REPO_ROOT")
+export REPO_ROOT_RELATIVE="../../"
+REPO_ROOT=$(realpath "$REPO_ROOT_RELATIVE")
+echo $REPO_ROOT
 
 # Check if local_env.sh exists
 if [ ! -f "${REPO_ROOT}/local_env.sh" ]; then
