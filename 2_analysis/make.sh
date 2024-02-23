@@ -27,7 +27,7 @@ mkdir -p output
 
 # Tell user what we're doing
 MODULE=$(basename "$PWD")
-echo "\n\nMaking \033[35m${MODULE}\033[0m module with shell: ${SHELL}"
+echo -e "\n\nMaking \033[35m${MODULE}\033[0m module with shell: ${SHELL}"
 
 # Run programs in order
 (
