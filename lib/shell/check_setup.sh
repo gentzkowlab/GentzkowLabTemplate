@@ -1,6 +1,11 @@
 #!/bin/bash
 
-echo $REPO_ROOT
+#!/bin/bash
+
+SCRIPT_ABSOLUTE_PATH=$(realpath "$0")
+REPO_ROOT=$(realpath "$SCRIPT_ABSOLUTE_PATH/../../../")
+
+echo "REPO_ROOT absolute path: $REPO_ROOT"
 
 # Check if local_env.sh exists
 if [ ! -f "${REPO_ROOT}/local_env.sh" ]; then
