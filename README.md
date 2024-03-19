@@ -87,7 +87,8 @@ To use the template with **Stata**, uncomment the lines beginning `run_stata` in
 `1_data/source/make.sh` and `2_analysis/source/make.sh`. The Stata executable 
 must be callable from the command line. The template assumes
 that the executable is `StataMP`. If your executable has a different name,
-you will need to update it in the `local_env.sh` file created by `setup.sh`.
+you will need to update it in the `local_env.sh` file created by `setup.sh`. The
+example scripts assume that you have `estout` installed.
 
 To use the template with **other tools, such as Julia, Matlab, or Lyx**, you will
 need to add lines to the `make.sh` files to run the relevant scripts, following the same

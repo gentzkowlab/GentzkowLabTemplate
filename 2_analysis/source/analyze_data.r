@@ -33,6 +33,7 @@ regression_table <- function(data) {
             dep.var.labels = c("Engine displacement (L)"),
             covariate.labels = c("City fuel economy (mpg)",
                                  "Highway fuel economy (mpg)"),
+            float = FALSE,
             out = "../output/table_reg.tex")
 }
 

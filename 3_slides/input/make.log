@@ -1,4 +1,269 @@
-Executing: python3 wrangle_data.py >> "../output/make.log"
-Executing: Rscript wrangle_data.r >> "../output/make.log"
-Error in library(tidyverse) : there is no package called ‘tidyverse’
-Execution halted
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  displ   R-squared:                       0.638
+Model:                            OLS   Adj. R-squared:                  0.636
+Method:                 Least Squares   F-statistic:                     408.2
+Date:                Tue, 19 Mar 2024   Prob (F-statistic):           4.74e-53
+Time:                        09:38:16   Log-Likelihood:                -272.70
+No. Observations:                 234   AIC:                             549.4
+Df Residuals:                     232   BIC:                             556.3
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      7.5585      0.209     36.238      0.000       7.148       7.969
+cty           -0.2424      0.012    -20.205      0.000      -0.266      -0.219
+==============================================================================
+Omnibus:                       43.018   Durbin-Watson:                   0.965
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               72.324
+Skew:                           0.996   Prob(JB):                     1.97e-16
+Kurtosis:                       4.858   Cond. No.                         71.4
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  displ   R-squared:                       0.587
+Model:                            OLS   Adj. R-squared:                  0.585
+Method:                 Least Squares   F-statistic:                     329.5
+Date:                Tue, 19 Mar 2024   Prob (F-statistic):           2.04e-46
+Time:                        09:38:16   Log-Likelihood:                -288.07
+No. Observations:                 234   AIC:                             580.1
+Df Residuals:                     232   BIC:                             587.0
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      7.3676      0.221     33.274      0.000       6.931       7.804
+hwy           -0.1662      0.009    -18.151      0.000      -0.184      -0.148
+==============================================================================
+Omnibus:                       54.692   Durbin-Watson:                   0.848
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              104.320
+Skew:                           1.180   Prob(JB):                     2.22e-23
+Kurtosis:                       5.266   Cond. No.                         98.6
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  displ   R-squared:                       0.638
+Model:                            OLS   Adj. R-squared:                  0.635
+Method:                 Least Squares   F-statistic:                     203.3
+Date:                Tue, 19 Mar 2024   Prob (F-statistic):           1.17e-51
+Time:                        09:38:16   Log-Likelihood:                -272.68
+No. Observations:                 234   AIC:                             551.4
+Df Residuals:                     231   BIC:                             561.7
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      7.5645      0.211     35.914      0.000       7.150       7.980
+cty           -0.2333      0.041     -5.699      0.000      -0.314      -0.153
+hwy           -0.0068      0.029     -0.232      0.817      -0.064       0.051
+==============================================================================
+Omnibus:                       43.908   Durbin-Watson:                   0.962
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               74.329
+Skew:                           1.012   Prob(JB):                     7.24e-17
+Kurtosis:                       4.879   Cond. No.                         123.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.5.0     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.1
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+
+Please cite as: 
+
+ Hlavac, Marek (2022). stargazer: Well-Formatted Regression and Summary Statistics Tables.
+ R package version 5.2.3. https://CRAN.R-project.org/package=stargazer 
+
+
+% Table created by stargazer v.5.2.3 by Marek Hlavac, Social Policy Institute. E-mail: marek.hlavac at gmail.com
+% Date and time: Tue, Mar 19, 2024 - 09:38:17
+% Requires LaTeX packages: dcolumn 
+\begin{tabular}{@{\extracolsep{5pt}}lD{.}{.}{-3} D{.}{.}{-3} D{.}{.}{-3} } 
+\\[-1.8ex]\hline 
+\hline \\[-1.8ex] 
+ & \multicolumn{3}{c}{\textit{Dependent variable:}} \\ 
+\cline{2-4} 
+\\[-1.8ex] & \multicolumn{3}{c}{Engine displacement (L)} \\ 
+\\[-1.8ex] & \multicolumn{1}{c}{(1)} & \multicolumn{1}{c}{(2)} & \multicolumn{1}{c}{(3)}\\ 
+\hline \\[-1.8ex] 
+ City fuel economy (mpg) & -0.242^{***} &  & -0.233^{***} \\ 
+  & (0.012) &  & (0.041) \\ 
+  & & & \\ 
+ Highway fuel economy (mpg) &  & -0.166^{***} & -0.007 \\ 
+  &  & (0.009) & (0.029) \\ 
+  & & & \\ 
+ Constant & 7.558^{***} & 7.368^{***} & 7.565^{***} \\ 
+  & (0.209) & (0.221) & (0.211) \\ 
+  & & & \\ 
+\hline \\[-1.8ex] 
+Observations & \multicolumn{1}{c}{234} & \multicolumn{1}{c}{234} & \multicolumn{1}{c}{234} \\ 
+R$^{2}$ & \multicolumn{1}{c}{0.638} & \multicolumn{1}{c}{0.587} & \multicolumn{1}{c}{0.638} \\ 
+Adjusted R$^{2}$ & \multicolumn{1}{c}{0.636} & \multicolumn{1}{c}{0.585} & \multicolumn{1}{c}{0.635} \\ 
+Residual Std. Error & \multicolumn{1}{c}{0.779 (df = 232)} & \multicolumn{1}{c}{0.832 (df = 232)} & \multicolumn{1}{c}{0.781 (df = 231)} \\ 
+F Statistic & \multicolumn{1}{c}{408.248$^{***}$ (df = 1; 232)} & \multicolumn{1}{c}{329.453$^{***}$ (df = 1; 232)} & \multicolumn{1}{c}{203.319$^{***}$ (df = 2; 231)} \\ 
+\hline 
+\hline \\[-1.8ex] 
+\textit{Note:}  & \multicolumn{3}{r}{$^{*}$p$<$0.1; $^{**}$p$<$0.05; $^{***}$p$<$0.01} \\ 
+\end{tabular} 
+Saving 7 x 7 in image
+Saving 7 x 7 in image
+
+  ___  ____  ____  ____  ____ ®
+ /__    /   ____/   /   ____/      18.0
+___/   /   /___/   /   /___/       MP—Parallel Edition
+
+ Statistics and Data Science       Copyright 1985-2023 StataCorp LLC
+                                   StataCorp
+                                   4905 Lakeway Drive
+                                   College Station, Texas 77845 USA
+                                   800-STATA-PC        https://www.stata.com
+                                   979-696-4600        stata@stata.com
+
+Stata license: Unlimited-user 4-core , expiring 21 Jul 2024
+Serial number: 501809310346
+  Licensed to: Matthew Gentzkow
+               Stanford University
+
+Notes:
+      1. Stata is running in batch mode.
+      2. Unicode is supported; see help unicode_advice.
+      3. More than 2 billion observations are allowed; see help obs_advice.
+      4. Maximum number of variables is set to 5,000 but can be increased; see help
+          set_maxvar.
+
+. do analyze_data.do 
+
+. * =============================================================================
+. * Short description of script's purpose
+. * =============================================================================
+. 
+. clear all
+
+. adopath + "../../lib/stata"
+  [1]  (BASE)      "/Applications/Stata/ado/base/"
+  [2]  (SITE)      "/Applications/Stata/ado/site/"
+  [3]              "."
+  [4]  (PERSONAL)  "/Users/gentzkow/Documents/Stata/ado/personal/"
+  [5]  (PLUS)      "/Users/gentzkow/Library/Application Support/Stata/ado/plus/"
+  [6]  (OLDPLACE)  "~/ado/"
+  [7]              "../../lib/stata"
+
+. set linesize 100
+
+. 
+. * =============================================================================
+. 
+. program main
+  1.     use "../input/mpg.dta", clear
+  2.     regression_table
+  3.         city_figure
+  4.         hwy_figure
+  5. end
+
+. 
+. program regression_table
+  1.         reg displ cty
+  2.         estimates store cty
+  3.         
+.         reg displ hwy
+  4.         estimates store hwy
+  5.         
+.         reg displ hwy cty
+  6.         estimates store hwy_cty
+  7.         
+.         esttab hwy cty hwy_cty using ../output/table_reg.tex, replace
+  8. end
+
+. 
+. program city_figure
+  1.     scatter cty displ, xtitle("Engine displacement (L)") ///
+>                 ytitle("City fuel economy (mpg)") ///
+>                 mcolor(year)
+  2.         graph export ../output/figure_city.jpg, replace
+  3. end
+
+. 
+. program hwy_figure
+  1.     scatter hwy displ, xtitle("Engine displacement (L)") ///
+>                 ytitle("Highway fuel economy (mpg)") ///
+>                 mcolor(year)
+  2.         graph export ../output/figure_hwy.jpg, replace
+  3. end
+
+. 
+. * Execute
+. main
+
+      Source |       SS           df       MS      Number of obs   =       234
+-------------+----------------------------------   F(1, 232)       =    408.25
+       Model |  247.987219         1  247.987219   Prob > F        =    0.0000
+    Residual |   140.92661       232  .607442286   R-squared       =    0.6376
+-------------+----------------------------------   Adj R-squared   =    0.6361
+       Total |  388.913829       233  1.66915806   Root MSE        =    .77939
+
+------------------------------------------------------------------------------
+       displ | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         cty |  -.2424045   .0119972   -20.21   0.000    -.2660418   -.2187672
+       _cons |   7.558485   .2085784    36.24   0.000     7.147536    7.969435
+------------------------------------------------------------------------------
+
+      Source |       SS           df       MS      Number of obs   =       234
+-------------+----------------------------------   F(1, 232)       =    329.45
+       Model |  228.209451         1  228.209451   Prob > F        =    0.0000
+    Residual |  160.704378       232  .692691283   R-squared       =    0.5868
+-------------+----------------------------------   Adj R-squared   =    0.5850
+       Total |  388.913829       233  1.66915806   Root MSE        =    .83228
+
+------------------------------------------------------------------------------
+       displ | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         hwy |  -.1662008   .0091566   -18.15   0.000    -.1842416     -.14816
+       _cons |    7.36757   .2214218    33.27   0.000     6.931315    7.803824
+------------------------------------------------------------------------------
+
+      Source |       SS           df       MS      Number of obs   =       234
+-------------+----------------------------------   F(2, 231)       =    203.32
+       Model |  248.020057         2  124.010029   Prob > F        =    0.0000
+    Residual |  140.893772       231  .609929747   R-squared       =    0.6377
+-------------+----------------------------------   Adj R-squared   =    0.6346
+       Total |  388.913829       233  1.66915806   Root MSE        =    .78098
+
+------------------------------------------------------------------------------
+       displ | Coefficient  Std. err.      t    P>|t|     [95% conf. interval]
+-------------+----------------------------------------------------------------
+         hwy |  -.0067896   .0292611    -0.23   0.817    -.0644423    .0508631
+         cty |  -.2333237   .0409402    -5.70   0.000    -.3139876   -.1526598
+       _cons |   7.564542   .2106286    35.91   0.000     7.149543    7.979541
+------------------------------------------------------------------------------
+(output written to ../output/table_reg.tex)
+(note:  named style year not found in class color, default attributes used)
+(note:  named style year not found in class color, default attributes used)
+file /Users/gentzkow/Dropbox
+    (Personal)/git/GentzkowLabTemplate/2_analysis/source/../output/figure_city.jpg saved as JPG
+    format
+(note:  named style year not found in class color, default attributes used)
+(note:  named style year not found in class color, default attributes used)
+file /Users/gentzkow/Dropbox
+    (Personal)/git/GentzkowLabTemplate/2_analysis/source/../output/figure_hwy.jpg saved as JPG
+    format
+
+. 
+. 
+end of do-file
