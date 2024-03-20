@@ -15,7 +15,7 @@ run_R () {
     # run program, add output to logfile
     echo "Executing: ${rCmd} ${program}"
     (
-        ${rCmd} ${program} 1>> "${logfile}" 2>> "${logfile}"
+        ${rCmd} "${program}" 1>> "${logfile}" 2>> "${logfile}"
 
         # report on errors
         return_code=$?
