@@ -145,7 +145,7 @@ xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/
 texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist
 /fonts/type1/urw/times/utmri8a.pfb>
-Output written on my_project.pdf (6 pages, 119957 bytes).
+Output written on my_project.pdf (6 pages, 119980 bytes).
 Transcript written on my_project.log.
 Latexmk: Missing bbl file 'my_project.bbl' in following:
  No file my_project.bbl.
@@ -319,7 +319,7 @@ xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/
 texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist
 /fonts/type1/urw/times/utmri8a.pfb>
-Output written on my_project.pdf (7 pages, 125539 bytes).
+Output written on my_project.pdf (7 pages, 125563 bytes).
 Transcript written on my_project.log.
 Latexmk: Getting log file 'my_project.log'
 Latexmk: Examining 'my_project.fls'
@@ -468,7 +468,7 @@ e1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type
 1/urw/times/utmb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on my_project.pdf (7 pages, 125180 bytes).
+Output written on my_project.pdf (7 pages, 125204 bytes).
 Transcript written on my_project.log.
 Latexmk: Getting log file 'my_project.log'
 Latexmk: Examining 'my_project.fls'
