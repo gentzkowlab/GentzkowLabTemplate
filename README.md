@@ -76,16 +76,12 @@ analysis scripts in Python, R, and Stata, and sample files to create slides
 and paper drafts in Latex. The R and Stata scripts are commented out by default,
 so that the template will run out of the box with only Python and Latex installed.
 
-To use the template with **R**, uncomment the lines beginning `run_R` in
-`1_data/source/make.sh` and `2_analysis/source/make.sh`. The R Studio executable 
-must be callable from the command line. The template assumes
+The R Studio executable must be callable from the command line. The template assumes
 that the executable is `rstudio`. If your executable has a different name,
 you will need to update it in the `local_env.sh` file created by `setup.sh`. The
 example scripts assume that you have `tidyverse`, `stargazer`, and `ggplot2` installed. 
 
-To use the template with **Stata**, uncomment the lines beginning `run_stata` in
-`1_data/source/make.sh` and `2_analysis/source/make.sh`. The Stata executable 
-must be callable from the command line. The template assumes
+The Stata executable must be callable from the command line. The template assumes
 that the executable is `StataMP`. If your executable has a different name,
 you will need to update it in the `local_env.sh` file created by `setup.sh`. The
 example scripts assume that you have `estout` installed.
@@ -96,10 +92,10 @@ format as the `run_python`, `run_R`, and `run_stata` commands in the deafult `ma
 files.
 
 To use the template **without Python**, comment out the lines beginning `run_python` in
-`1_data/source/make.sh` and `2_analysis/source/make.sh`. 
+`1_data/make.sh` and `2_analysis/make.sh`. 
 
 To use the template **without Latex**, comment out the lines beginning `run_latex` in
-`3_slides/source/make.sh` and `4_paper/source/make.sh`.
+`3_slides/make.sh` and `4_paper/make.sh`.
 
 
 # Repository organization
