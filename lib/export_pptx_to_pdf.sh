@@ -1,7 +1,10 @@
 #!/bin/bash
 
-ppt_file="/Users/shrishjanarthanan/Desktop/SIEPR/GentzkowLabTemplate/slides.pptx"
-output_dir="/Users/shrishjanarthanan/Desktop/SIEPR/GentzkowLabTemplate"
+
+REPO_ROOT=$(git rev-parse --show-toplevel)
+
+ppt_file=${REPO_ROOT}/slides.pptx
+output_dir=${REPO_ROOT}
 
 if [ ! -d "$output_dir" ]; then
     echo "Error: Output directory '$output_dir' not found."
