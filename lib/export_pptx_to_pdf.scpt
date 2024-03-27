@@ -6,12 +6,12 @@ on run argv
         tell application "Microsoft PowerPoint"
             activate
             open pptFile
-            save active presentation in pdfPath as save as PDF
+            save active presentation in pdfPath as save as PDF 
             close active presentation saving no
             quit
         end tell
-        
-        -- Display a success message
+    
+    -- Display a success message
         display dialog "PDF saved successfully at " & pdfPath
     on error errMsg
         -- Display an error message if something goes wrong
