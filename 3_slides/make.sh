@@ -33,5 +33,5 @@ echo -e "\n\nMaking \033[35m${MODULE}\033[0m module with shell: ${SHELL}"
 SLIDES_SOURCE=${REPO_ROOT}/extensions/powerpoint
 
 # Uncomment these lines if you want to convert the PowerPoint files in 3_slides/source into PDFs 
-#echo "Converting .pptx to .pdf"
-#${SLIDES_SOURCE}/run_pptx.sh
+echo "Converting .pptx to .pdf"
+${SLIDES_SOURCE}/run_pptx.sh
