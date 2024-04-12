@@ -30,7 +30,7 @@ source "${REPO_ROOT}/lib/shell/run_latex.sh"
     find "${REPO_ROOT}/2_analysis/output" -type f -exec cp {} input/ \;
 
     # Run programs in order
-    cd source
+    cd "${MAKE_SCRIPT_DIR}/source"
     run_latex my_project_slides.tex ../output "${LOGFILE}"
 
 ) 2>&1 | tee "${LOGFILE}"
