@@ -1,15 +1,11 @@
 #!/bin/bash   
 
-source ${LIB}/utilities.sh
-
 unset run_stata
 run_stata() {
     # get arguments
     program="$1"
     logfile="$2"
-    
-    # get path to file and file name
-    local filename=$(parse_fp "${program}" 4)
+    programname="${program%.*}"
 
     # set Stata command if unset
     if [ -z "$stataCmd" ]; then
@@ -18,10 +14,17 @@ run_stata() {
     fi
 
     # run program, add output to logfile
-    echo "Executing: ${stataCmd} ${program} >> \"${logfile}\""
-    (${stataCmd} -e do ${program})
+    echo "Executing: ${stataCmd} ${program}"
+    (
+        ${stataCmd} -b -e do ${program} 1>> "${logfile}" 2>> "${logfile}"
+
+        # report on errors
+        if [ $? -ne 0 ]; then
+            echo "Error: ${program} failed with exit code $return_code" | tee -a "${logfile}"
+        fi
+    )
 
     # add default log to log file and then delete default log
-    cat "${filename}.log" >> "${logfile}"
-    rm "${filename}.log"
+    cat "${programname}.log" >> "${logfile}"
+    rm "${programname}.log"
 }

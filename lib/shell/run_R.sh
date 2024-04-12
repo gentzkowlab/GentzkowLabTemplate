@@ -13,7 +13,16 @@ run_R () {
     fi
 
     # run program, add output to logfile
-    echo "Executing: ${rCmd} ${program} >> \"${logfile}\""
-    (${rCmd} ${program} 1> "${logfile}" 2> "${logfile}")
+    echo "Executing: ${rCmd} ${program}"
+    (
+        ${rCmd} "${program}" 1>> "${logfile}" 2>> "${logfile}"
+
+        # report on errors
+        return_code=$?
+        if [ $return_code -ne 0 ]; then
+            # Log an error message if the command failed
+            echo "Error: ${program} failed with exit code $return_code"
+        fi
+    )
 }
 

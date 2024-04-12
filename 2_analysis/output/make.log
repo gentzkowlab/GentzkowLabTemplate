@@ -1,2 +1,88 @@
-Error in library(tidyverse) : there is no package called ‘tidyverse’
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  displ   R-squared:                       0.638
+Model:                            OLS   Adj. R-squared:                  0.636
+Method:                 Least Squares   F-statistic:                     408.2
+Date:                Wed, 27 Mar 2024   Prob (F-statistic):           4.74e-53
+Time:                        19:46:23   Log-Likelihood:                -272.70
+No. Observations:                 234   AIC:                             549.4
+Df Residuals:                     232   BIC:                             556.3
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      7.5585      0.209     36.238      0.000       7.148       7.969
+cty           -0.2424      0.012    -20.205      0.000      -0.266      -0.219
+==============================================================================
+Omnibus:                       43.018   Durbin-Watson:                   0.965
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               72.324
+Skew:                           0.996   Prob(JB):                     1.97e-16
+Kurtosis:                       4.858   Cond. No.                         71.4
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  displ   R-squared:                       0.587
+Model:                            OLS   Adj. R-squared:                  0.585
+Method:                 Least Squares   F-statistic:                     329.5
+Date:                Wed, 27 Mar 2024   Prob (F-statistic):           2.04e-46
+Time:                        19:46:23   Log-Likelihood:                -288.07
+No. Observations:                 234   AIC:                             580.1
+Df Residuals:                     232   BIC:                             587.0
+Df Model:                           1                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      7.3676      0.221     33.274      0.000       6.931       7.804
+hwy           -0.1662      0.009    -18.151      0.000      -0.184      -0.148
+==============================================================================
+Omnibus:                       54.692   Durbin-Watson:                   0.848
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              104.320
+Skew:                           1.180   Prob(JB):                     2.22e-23
+Kurtosis:                       5.266   Cond. No.                         98.6
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                  displ   R-squared:                       0.638
+Model:                            OLS   Adj. R-squared:                  0.635
+Method:                 Least Squares   F-statistic:                     203.3
+Date:                Wed, 27 Mar 2024   Prob (F-statistic):           1.17e-51
+Time:                        19:46:23   Log-Likelihood:                -272.68
+No. Observations:                 234   AIC:                             551.4
+Df Residuals:                     231   BIC:                             561.7
+Df Model:                           2                                         
+Covariance Type:            nonrobust                                         
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+Intercept      7.5645      0.211     35.914      0.000       7.150       7.980
+cty           -0.2333      0.041     -5.699      0.000      -0.314      -0.153
+hwy           -0.0068      0.029     -0.232      0.817      -0.064       0.051
+==============================================================================
+Omnibus:                       43.908   Durbin-Watson:                   0.962
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               74.329
+Skew:                           1.012   Prob(JB):                     7.24e-17
+Kurtosis:                       4.879   Cond. No.                         123.
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
+✔ dplyr     1.1.4     ✔ readr     2.1.5
+✔ forcats   1.0.0     ✔ stringr   1.5.1
+✔ ggplot2   3.4.4     ✔ tibble    3.2.1
+✔ lubridate 1.9.3     ✔ tidyr     1.3.0
+✔ purrr     1.0.2     
+── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+✖ dplyr::filter() masks stats::filter()
+✖ dplyr::lag()    masks stats::lag()
+ℹ Use the conflicted package (<http://conflicted.r-lib.org/>) to force all conflicts to become errors
+Error in library(stargazer) : there is no package called ‘stargazer’
 Execution halted

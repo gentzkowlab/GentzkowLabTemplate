@@ -7,8 +7,8 @@ PROJECT_NAME="template"
 # Tell user what we're doing
 echo -e "Making \033[35m${PROJECT_NAME}\033[0m with shell: ${SHELL}"
 
-# Run makeiles of each module
-(cd 1_data && ${SHELL} make.sh)
-(cd 2_analysis && ${SHELL} make.sh)
-(cd 3_slides && ${SHELL} make.sh)
-(cd 4_paper && ${SHELL} make.sh)
+# Run makefiles of each module
+${SHELL} 1_data/make.sh
+${SHELL} 2_analysis/make.sh
+${SHELL} 3_slides/make.sh
+${SHELL} 4_paper/make.sh

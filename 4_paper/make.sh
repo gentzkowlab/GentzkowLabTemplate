@@ -1,30 +1,36 @@
 #!/bin/bash   
 set -e
 
-# User-defined constants
-REPO_ROOT=..
-LIB=${REPO_ROOT}/lib/shell
-LOGFILE=output/make.log
-
-# Load local environment and shell commands
-source ${REPO_ROOT}/local_env.sh
-source ${LIB}/run_latex.sh
-
-# Clear output directory
-rm -rf output
-rm -f ${LOGFILE}
-mkdir -p output
-
-# Copy and/or symlink inputs
-rm -rf input
-cp -r ${REPO_ROOT}/1_data/output input
+# Set paths
+# (Make sure REPO_ROOT is set to point to the root of the repository!)
+MAKE_SCRIPT_DIR=$(dirname "$(realpath "$0")")
+REPO_ROOT=$(realpath "$MAKE_SCRIPT_DIR/../")
+MODULE=$(basename "$MAKE_SCRIPT_DIR")
+LOGFILE="${MAKE_SCRIPT_DIR}/output/make.log"
 
 # Tell user what we're doing
-MODULE=$(basename "$PWD")
-echo "\n\nMaking \033[35m${MODULE}\033[0m module with shell: ${SHELL}"
+echo -e "\n\nMaking \033[35m${MODULE}\033[0m module with shell: ${SHELL}"
 
-# Run programs in order
+# Check setup; load settings & tools
+source "${REPO_ROOT}/lib/shell/check_setup.sh"
+source "${REPO_ROOT}/local_env.sh"
+source "${REPO_ROOT}/lib/shell/run_latex.sh"
+
 (
-    cd source 
-    run_latex my_project.tex ../$LOGFILE ../output
+    cd "${MAKE_SCRIPT_DIR}"
+
+    # Clear output directory
+    rm -rf output
+    mkdir -p output
+
+    # Copy and/or symlink inputs to local directory
+    # (Make sure this section is updated to pull in all needed input files!)
+    rm -rf input
+    mkdir -p input
+    find "${REPO_ROOT}/2_analysis/output" -type f -exec cp {} input/ \;
+
+    # Run programs in order
+    cd source
+    run_latex my_project.tex ../output "${LOGFILE}"
+
 ) 2>&1 | tee ${LOGFILE}

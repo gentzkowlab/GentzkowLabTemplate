@@ -1,0 +1,2 @@
+*.log merge=binary
+* text=auto
