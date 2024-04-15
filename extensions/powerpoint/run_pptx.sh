@@ -4,8 +4,8 @@
 REPO_ROOT=$(git rev-parse --show-toplevel)
 
 # Define the input and output directories
-SLIDES_SOURCE=${REPO_ROOT}/3_slides/source
-SLIDES_OUTPUT=${REPO_ROOT}/3_slides/output
+SLIDES_SOURCE=${REPO_ROOT}/5_pptx/source
+SLIDES_OUTPUT=${REPO_ROOT}/5_pptx/output
 EXTENSION=${REPO_ROOT}/extensions/powerpoint
 
 # Define the output directory

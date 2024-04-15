@@ -35,9 +35,3 @@ source "${REPO_ROOT}/lib/shell/run_latex.sh"
 
 ) 2>&1 | tee "${LOGFILE}"
 
-# Define the input and output directories
-SLIDES_SOURCE=${REPO_ROOT}/extensions/powerpoint
-
-# Uncomment these lines if you want to convert the PowerPoint files in 3_slides/source into PDFs 
-echo "Converting .pptx to .pdf"
-${SLIDES_SOURCE}/run_pptx.sh

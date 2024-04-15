@@ -6,8 +6,12 @@ This extension includes the functionality to convert a PowerPoint (.pptx) into a
 
 ## How to Use
 
-To enable this functionality, you must go to the `3_slides/make.sh` file and uncomment out line 37. The expected behavior is that all PowerPoint files in the `3_slides/source` directory will be converted into PDFs and stored in `3_slides/output`.
+To enable this functionality, you must move `5_pptx` out of `extensions/powerpoint` so that it is in parallel with all other modules. You must then move any PowerPoint files that you would like to convert into PDF into the `5_pptx/source` directory. These files will be converted into PDFs and stored in `5_pptx/output`.
+
+If you would like to toggle this functionality in `run_all.sh`, you need to uncomment line 17. 
 
 ## Potential Warning
 
-You may be asked to grant file access when running the program through a pop-up window.
+This will only work on Mac OS. 
+You may be asked to grant file access when running the program for the first time through a pop-up window.
+You may recieve an error like this: `./5_pptx/make.sh: Permission denied`. To rectify this, you must execute `chmod +x make.sh` in your terminal. 
