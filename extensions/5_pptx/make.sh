@@ -6,7 +6,6 @@ set -e
 MAKE_SCRIPT_DIR=$(dirname "$(realpath "$0")")
 REPO_ROOT=$(realpath "$MAKE_SCRIPT_DIR/../")
 MODULE=$(basename "$MAKE_SCRIPT_DIR")
-LOGFILE="${MAKE_SCRIPT_DIR}/output/make.log"
 
 # Tell user what we're doing
 echo -e "\n\nMaking \033[35m${MODULE}\033[0m module with shell: ${SHELL}"
@@ -16,7 +15,7 @@ source "${REPO_ROOT}/lib/shell/check_setup.sh"
 source "${REPO_ROOT}/local_env.sh"
 
 # Define the input and output directories
-SLIDES_SOURCE=${REPO_ROOT}/extensions/powerpoint
+SLIDES_SHELL=${REPO_ROOT}/lib/shell
 
 echo "Executing: run_pptx.sh"
-${SLIDES_SOURCE}/run_pptx.sh
+${SLIDES_SHELL}/run_pptx.sh
