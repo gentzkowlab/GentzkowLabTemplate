@@ -5,6 +5,8 @@ Latexmk: applying rule 'pdflatex'...
 Rule 'pdflatex': File changes, etc:
    Changed files, or newly in use since previous run(s):
   my_project.tex
+   No-longer-existing files:
+  my_project.aux
 Rule 'pdflatex': The following rules & subrules became out-of-date:
   pdflatex
 ------------
@@ -145,7 +147,7 @@ xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/
 texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist
 /fonts/type1/urw/times/utmri8a.pfb>
-Output written on my_project.pdf (6 pages, 119776 bytes).
+Output written on my_project.pdf (6 pages, 119800 bytes).
 Transcript written on my_project.log.
 Latexmk: Missing bbl file 'my_project.bbl' in following:
  No file my_project.bbl.
@@ -319,7 +321,7 @@ xlive/2022/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/tex
 live/2022/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2022/
 texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2022/texmf-dist
 /fonts/type1/urw/times/utmri8a.pfb>
-Output written on my_project.pdf (7 pages, 125362 bytes).
+Output written on my_project.pdf (7 pages, 125387 bytes).
 Transcript written on my_project.log.
 Latexmk: Getting log file 'my_project.log'
 Latexmk: Examining 'my_project.fls'
@@ -468,7 +470,7 @@ e1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2022/texmf-dist/fonts/type
 1/urw/times/utmb8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/time
 s/utmr8a.pfb></usr/local/texlive/2022/texmf-dist/fonts/type1/urw/times/utmri8a.
 pfb>
-Output written on my_project.pdf (7 pages, 125006 bytes).
+Output written on my_project.pdf (7 pages, 125029 bytes).
 Transcript written on my_project.log.
 Latexmk: Getting log file 'my_project.log'
 Latexmk: Examining 'my_project.fls'
