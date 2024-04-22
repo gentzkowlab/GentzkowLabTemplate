@@ -8,7 +8,7 @@ This extension includes the functionality to convert a PowerPoint (.pptx) into a
 
 To enable this functionality, you must move the `powerpoint` module out of `extensions` so that it is in parallel with all other modules and rename it to `5_pptx`. You must then move any PowerPoint files that you would like to convert into PDF into the `5_pptx/source` directory. These files will be converted into PDFs and stored in `5_pptx/output`.
 
-If you would like to toggle this functionality in `run_all.sh`, you need to uncomment line 17. 
+If you would like to toggle this functionality in `run_all.sh`, you need to uncomment related line `${SHELL} 5_pptx/make.sh`. 
 
 ## Potential Warning
 
