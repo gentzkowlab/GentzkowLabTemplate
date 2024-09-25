@@ -3,28 +3,28 @@
 unset run_lyx
 run_lyx() {
 
-    # Get arguments
+    # get arguments
     programname=$(basename "$1" .lyx)
     logfile="$2"
 
-    # Set output directory
+    # set output directory
     if [ -n "$3" ]; then
         OUTPUT_DIR="$3"
     else
         OUTPUT_DIR="../output"
     fi
     
-    # Cleanup function (not assuming same files as LaTeX, minimal cleanup for now)
+    # Cleanup 
     cleanup() {
         if [ -f "${programname}.pdf" ]; then
             mv "${programname}.pdf" "${OUTPUT_DIR}"
         fi
     }
 
-    # Ensure cleanup is called on exit
+    # ensure cleanup is called on exit
     trap 'cleanup' EXIT
 
-    # Check if lyx command exists
+    # check if lyx command exists
     if ! command -v lyx &> /dev/null; then
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\033[0;31mProgram error\033[0m at ${error_time}: LyX not found. Ensure LyX is installed."
@@ -32,7 +32,7 @@ run_lyx() {
         return 1
     fi
 
-    # Find lyx command path
+    # find lyx command path
     lyx_path=$(which lyx)
 
     if [ -z "$lyx_path" ]; then
