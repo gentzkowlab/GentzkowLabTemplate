@@ -1,0 +1,9 @@
+# Each line of instruction in this `inputs.txt` file should contain a path to a source
+# Lines beginning with # are ignored.
+# Note that there should not be any leading or trailing spaces in the paths.
+# Paths may be absolute or relative to the current module. For example, this is a relative path:
+# ../examples/inputs_for_examples/mpg.csv
+# And this is an absolute path:
+# Users/username/GentzkowLabTemplate/examples/inputs_for_examples/mpg.csv
+
+# Script ends here
