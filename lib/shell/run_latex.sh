@@ -46,7 +46,7 @@ run_latex() {
     fi
  
     # capture the content of output folder before running the script
-    files_before=$(ls -1 "$OUTPUT_DIR" | grep -v "make.log")
+    files_before=$(ls -1 "$OUTPUT_DIR" | grep -v "make.log" | tr '\n' ' ')
 
     # log start time for the script
     echo -e "\nScript ${programname}.tex in latexmk -pdf -bibtex started at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
@@ -59,7 +59,7 @@ run_latex() {
     cleanup
 
     # capture the content of output folder after running the script
-    files_after=$(ls -1 "$OUTPUT_DIR" | grep -v "make.log")
+    files_after=$(ls -1 "$OUTPUT_DIR" | grep -v "make.log" | tr '\n' ' ')
 
     # determine the new files that were created
     created_files=$(comm -13 <(echo "$files_before") <(echo "$files_after"))
