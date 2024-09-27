@@ -1,6 +1,12 @@
 #!/bin/bash   
-# Enable `set -e` for early errors
-set -e
+
+# Trap to handle shell script errors 
+trap 'error_handler' ERR
+error_handler() {
+    error_time=$(date '+%Y-%m-%d %H:%M:%S')
+    echo -e "\n\033[0;31mWarning\033[0m: make.sh failed at ${error_time}. Check above for details." # display warning in terminal
+    exit 1 # early exit with error code
+}
 
 # Set paths
 # (Make sure REPO_ROOT is set to point to the root of the repository!)
@@ -25,32 +31,25 @@ source "${REPO_ROOT}/lib/shell/run_shell.sh"
 rm -rf "${MAKE_SCRIPT_DIR}/output"
 mkdir -p "${MAKE_SCRIPT_DIR}/output"
 
-# Disable `set -e` to allow for custom error handling from here on
-set +e
-
-# Trap to handle shell script errors 
-trap 'error_handler' ERR
-exec 2>>"${LOGFILE}" # errors should go to the log file
-error_handler() {
-    error_time=$(date '+%Y-%m-%d %H:%M:%S')
-    echo -e "\nError: make.sh failed at ${error_time}. Check above for details." >> "${LOGFILE}" # log error message
-    echo -e "\n\033[0;31mWarning\033[0m: make.sh failed at ${error_time}. Check the log for details." # display warning in terminal
-    exit 1 # early exit with error code
-}
-
 # Copy and/or symlink input files to local /input/ directory
 # (Make sure this section is updated to pull in all needed input files!)
 rm -rf "${MAKE_SCRIPT_DIR}/input"
 mkdir -p "${MAKE_SCRIPT_DIR}/input"
 # cp my_source_files "${MAKE_SCRIPT_DIR}/input/"
 
-
 # Run scripts
+# (Do this in a subshell so we return to the original working directory
+# after scripts are run)
  echo -e "\nmake.sh started at $(date '+%Y-%m-%d %H:%M:%S')"
 
+(
+ trap 'error_handler' ERR # reactivate trap in subshell
+
 cd "${MAKE_SCRIPT_DIR}/source"
+
 run_shell my_shell_script.sh "${LOGFILE}"
 # run_xxx my_script.xx "${LOGFILE}"
+)
 
 cd "${MAKE_SCRIPT_DIR}" # return to original working directory
 
