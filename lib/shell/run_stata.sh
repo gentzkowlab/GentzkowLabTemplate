@@ -23,6 +23,14 @@ run_stata() {
         echo "Program Error at ${error_time}: ${stataCmd} not found." >> "${logfile}"
         exit 1  # exit early with an error code
     fi
+     
+    # check if the target script exists
+    if [ ! -f "${program}" ]; then
+        error_time=$(date '+%Y-%m-%d %H:%M:%S')
+        echo -e "\033[0;31mProgram error\033[0m at ${error_time}: script ${program} not found." 
+        echo "Program Error at ${error_time}: script ${program} not found." >> "${logfile}"
+        return 1
+    fi
 
     # capture the content of output folder before running the script
     files_before=$(ls -1 "$OUTPUT_DIR" | grep -v "make.log" | tr '\n' ' ')
