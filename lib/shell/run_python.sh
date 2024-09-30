@@ -2,7 +2,8 @@
 
 unset run_python
 run_python () {
-
+   trap - ERR # allow internal error handling
+   
     # get arguments
     program="$1"
     logfile="$2"

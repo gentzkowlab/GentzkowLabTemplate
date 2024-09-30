@@ -2,6 +2,8 @@
 
 unset run_stata
 run_stata() {
+    trap - ERR # allow internal error handling
+
     # get arguments
     program="$1"
     logfile="$2"

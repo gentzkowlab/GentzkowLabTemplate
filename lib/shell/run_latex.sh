@@ -3,7 +3,8 @@
 unset run_latex
 unset cleanup
 run_latex() {
-
+   trap - ERR # allow internal error handling
+   
     # Get arguments
     programname=$(basename "$1" .tex)
     logfile="$2"

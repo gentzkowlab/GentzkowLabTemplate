@@ -2,7 +2,8 @@
 
 unset run_R
 run_R () {
-
+   trap - ERR # allow internal error handling
+   
     # get arguments
     program="$1"
     logfile="$2"

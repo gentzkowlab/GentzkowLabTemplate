@@ -2,7 +2,8 @@
 
 unset run_shell
 run_shell () {
-
+   trap - ERR # allow internal error handling
+   
     # get arguments
     program="$1"
     logfile="$2"
