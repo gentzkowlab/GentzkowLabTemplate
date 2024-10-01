@@ -54,3 +54,4 @@ run_shell my_shell_script.sh "${LOGFILE}"
 cd "${MAKE_SCRIPT_DIR}" # return to original working directory
 
 echo -e "\nmake.sh finished at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${LOGFILE}"
+
