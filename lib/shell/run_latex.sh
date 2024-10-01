@@ -47,10 +47,10 @@ run_latex() {
     fi
  
     # check if the target script exists
-    if [ ! -f "${program}" ]; then
+    if [ ! -f "${programname}.tex" ]; then
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
-        echo -e "\033[0;31mProgram error\033[0m at ${error_time}: script ${program} not found." 
-        echo "Program Error at ${error_time}: script ${program} not found." >> "${logfile}"
+        echo -e "\033[0;31mProgram error\033[0m at ${error_time}: script ${programname}.tex not found." 
+        echo "Program Error at ${error_time}: script ${programname}.tex not found." >> "${logfile}"
         return 1
     fi
     
