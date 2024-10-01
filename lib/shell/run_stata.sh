@@ -29,7 +29,7 @@ run_stata() {
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\033[0;31mProgram error\033[0m at ${error_time}: script ${program} not found." 
         echo "Program Error at ${error_time}: script ${program} not found." >> "${logfile}"
-        return 1
+        exit 1
     fi
 
     # capture the content of output folder before running the script

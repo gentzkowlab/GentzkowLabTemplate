@@ -20,7 +20,7 @@ run_R () {
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\033[0;31mProgram error\033[0m at ${error_time}: ${rCmd} not found. Make sure command line usage is properly set up." 
         echo "Program Error at ${error_time}: ${rCmd} not found." >> "${logfile}"
-        return 1  # exit early with an error code
+        exit 1  # exit early with an error code
     fi
 
     # check if the target script exists
@@ -28,7 +28,7 @@ run_R () {
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\033[0;31mProgram error\033[0m at ${error_time}: script ${program} not found." 
         echo "Program Error at ${error_time}: script ${program} not found." >> "${logfile}"
-        return 1
+        exit 1
     fi
 
     # capture the content of output folder before running the script

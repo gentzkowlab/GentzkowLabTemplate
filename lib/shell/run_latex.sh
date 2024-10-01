@@ -43,7 +43,7 @@ run_latex() {
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\033[0;31mProgram error\033[0m at ${error_time}: latexmk not found. Ensure LaTeX is installed." 
         echo "Program Error at ${error_time}: latexmk not found." >> "${logfile}"
-        return 1
+        exit 1
     fi
  
     # check if the target script exists
@@ -51,7 +51,7 @@ run_latex() {
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\033[0;31mProgram error\033[0m at ${error_time}: script ${programname}.tex not found." 
         echo "Program Error at ${error_time}: script ${programname}.tex not found." >> "${logfile}"
-        return 1
+        exit 1
     fi
     
     # capture the content of output folder before running the script

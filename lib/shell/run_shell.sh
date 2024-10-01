@@ -17,7 +17,7 @@ run_shell () {
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\033[0;31mProgram error\033[0m at ${error_time}: script ${program} not found." 
         echo "Program Error at ${error_time}: script ${program} not found." >> "${logfile}"
-        return 1
+        exit 1
     fi
 
     # capture the content of the output folder before running the script
@@ -45,6 +45,7 @@ run_shell () {
             echo -e "\033[0;31mWarning\033[0m: there was an error, but files where created. Check log." 
             echo -e "\nWarning: There was an error, but these files were created: $created_files" >> "${logfile}"  # log created files
         fi
+        exit 1
     else
         echo "Script ${program} finished successfully at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
         echo "Output: $output" >> "${logfile}"  # log output
