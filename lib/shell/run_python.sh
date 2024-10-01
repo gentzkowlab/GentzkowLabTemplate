@@ -11,8 +11,8 @@ run_python () {
 
     # set python command if unset
     if [ -z "$pythonCmd" ]; then
-        echo -e "\nNo python command set. Using default: python"
-        pythonCmd="python"
+        echo -e "\nNo python command set. Using default: python3"
+        pythonCmd="python3"
     fi
 
     # check if the command exists before running, log error if does not
