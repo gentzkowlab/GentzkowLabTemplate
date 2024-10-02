@@ -41,7 +41,7 @@ run_latex() {
     # Check if latexmk command exists
     if ! command -v latexmk &> /dev/null; then
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
-        echo -e "\033[0;31mProgram error\033[0m at ${error_time}: latexmk not found. Ensure LaTeX is installed." 
+        echo -e "\n\033[0;31mProgram error\033[0m at ${error_time}: latexmk not found. Ensure LaTeX is installed." 
         echo "Program Error at ${error_time}: latexmk not found." >> "${logfile}"
         exit 1
     fi
@@ -49,13 +49,13 @@ run_latex() {
     # check if the target script exists
     if [ ! -f "${programname}.tex" ]; then
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
-        echo -e "\033[0;31mProgram error\033[0m at ${error_time}: script ${programname}.tex not found." 
+        echo -e "\n\033[0;31mProgram error\033[0m at ${error_time}: script ${programname}.tex not found." 
         echo "Program Error at ${error_time}: script ${programname}.tex not found." >> "${logfile}"
         exit 1
     fi
     
     # capture the content of output folder before running the script
-    files_before=$(ls -1 "$OUTPUT_DIR" | grep -v "make.log" | tr '\n' ' ')
+    files_before=$(find "$OUTPUT_DIR" -type f ! -name "make.log" -exec basename {} + | tr '\n' ' ')
 
     # log start time for the script
     echo -e "\nScript ${programname}.tex in latexmk -pdf -bibtex started at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
@@ -68,7 +68,7 @@ run_latex() {
     cleanup
 
     # capture the content of output folder after running the script
-    files_after=$(ls -1 "$OUTPUT_DIR" | grep -v "make.log" | tr '\n' ' ')
+    files_after=$(find "$OUTPUT_DIR" -type f ! -name "make.log" -exec basename {} + | tr '\n' ' ')
 
     # determine the new files that were created
     created_files=$(comm -13 <(echo "$files_before") <(echo "$files_after"))

@@ -18,7 +18,7 @@ run_python () {
     # check if the command exists before running, log error if does not
     if ! command -v ${pythonCmd} &> /dev/null; then
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
-        echo -e "\033[0;31mProgram error\033[0m at ${error_time}: ${pythonCmd} not found. Make sure command line usage is properly set up." 
+        echo -e "\n\033[0;31mProgram error\033[0m at ${error_time}: ${pythonCmd} not found. Make sure command line usage is properly set up." 
         echo "Program Error at ${error_time}: ${pythonCmd} not found." >> "${logfile}"
         exit 1  # exit early with an error code
     fi
@@ -26,13 +26,13 @@ run_python () {
     # check if the target script exists
     if [ ! -f "${program}" ]; then
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
-        echo -e "\033[0;31mProgram error\033[0m at ${error_time}: script ${program} not found." 
+        echo -e "\n\033[0;31mProgram error\033[0m at ${error_time}: script ${program} not found." 
         echo "Program Error at ${error_time}: script ${program} not found." >> "${logfile}"
         exit 1
     fi
 
     # capture the content of output folder before running the script
-    files_before=$(ls -1 "$OUTPUT_DIR" | grep -v "make.log" | tr '\n' ' ')
+    files_before=$(find "$OUTPUT_DIR" -type f ! -name "make.log" -exec basename {} + | tr '\n' ' ')
 
     # log start time for the script
     echo -e "\nScript ${program} in ${pythonCmd} started at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
@@ -42,7 +42,7 @@ run_python () {
     return_code=$?  # capture the exit status 
 
     # capture the content of output folder after running the script
-    files_after=$(ls -1 "$OUTPUT_DIR" | grep -v "make.log" | tr '\n' ' ')
+    files_after=$(find "$OUTPUT_DIR" -type f ! -name "make.log" -exec basename {} + | tr '\n' ' ')
 
     # determine the new files that were created
     created_files=$(comm -13 <(echo "$files_before") <(echo "$files_after"))
