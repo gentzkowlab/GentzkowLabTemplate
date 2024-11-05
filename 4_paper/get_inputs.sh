@@ -28,7 +28,7 @@ for file_path in "${INPUT_FILES[@]}"; do
       ln -sf "$abs_path" "${MAKE_SCRIPT_DIR}/input/$file_name"  # create symlink
       links_created=true
     else
-      echo -e "\n\033[0;31mError:\033[0m $file_path does not exist or is not a valid file path." >&2
+      echo -e "\033[0;31mError:\033[0m in \033[0;34mget_inputs.sh\033[0m: $file_path does not exist or is not a valid file path." >&2
     fi
 done
 
