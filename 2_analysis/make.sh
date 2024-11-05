@@ -43,13 +43,11 @@ mkdir -p "${MAKE_SCRIPT_DIR}/input"
  echo -e "\nmake.sh started at $(date '+%Y-%m-%d %H:%M:%S')"
 
 (
- trap 'error_handler' ERR # reactivate trap in subshell
-
 cd "${MAKE_SCRIPT_DIR}/source"
 
 run_shell my_shell_script.sh "${LOGFILE}"
 # run_xxx my_script.xx "${LOGFILE}"
-)
+) || false
 
 cd "${MAKE_SCRIPT_DIR}" # return to original working directory
 
