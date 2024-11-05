@@ -2,12 +2,12 @@
 set -e
 
 MAKE_EXTERNALS_SCRIPT_DIR=$(dirname "$(realpath "$0")")
-REPO_ROOT=$(realpath "$MAKE_EXTERNALS_SCRIPT_DIR/../")
+REPO_ROOT=$(realpath "$MAKE_EXTERNALS_SCRIPT_DIR/../../")
 
 source "${REPO_ROOT}/local_env.sh"
 
-# Create the 'externals' folder in the current directory if it doesn't exist
-mkdir -p externals
+# Create the 'externals' folder in the repo root if it doesn't exist
+mkdir -p "${REPO_ROOT}/externals" 
 
 # Loop through the EXTERNAL_NAMES and EXTERNAL_PATHS arrays and create symlinks
 for i in "${!EXTERNAL_NAMES[@]}"; do
@@ -15,7 +15,7 @@ for i in "${!EXTERNAL_NAMES[@]}"; do
     target_path="${EXTERNAL_PATHS[$i]}"
     
     if [ -d "$target_path" ]; then
-        ln -sfn "$target_path" "externals/$name"
+        ln -sfn "$target_path" "${REPO_ROOT}/externals/$name"
         echo "Symlink created for $name -> $target_path"
     else
         echo "\033[0;31mWarning\033[0m: Target path $target_path does not exist for $name"
