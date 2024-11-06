@@ -18,7 +18,7 @@ if [ ! -f "${REPO_ROOT}/local_env.sh" ]; then
     echo "local_env.sh has been created from the template."
     echo "Please edit it to reflect your local executables and external file paths."
     echo -e "Press \033[0;34mEnter\033[0m to continue after editing or re-run setup.sh once you've done so."
-    read -p " "
+    read
     else
         echo -e "\033[0;34mNote:\033[0m: local_env.sh already exists."
 fi
