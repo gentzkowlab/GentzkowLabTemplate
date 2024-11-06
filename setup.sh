@@ -1,5 +1,12 @@
 #!/bin/bash
-set -e
+
+# Trap to handle shell script errors 
+trap 'error_handler' ERR
+error_handler() {
+    error_time=$(date '+%Y-%m-%d %H:%M:%S')
+    echo -e "\n\033[0;31mWarning\033[0m: setup.sh failed at ${error_time}. Check above for details." # display warning in terminal
+    exit 1 # early exit with error code
+}
 
 REPO_ROOT=$(dirname "$(realpath "$0")")
 
