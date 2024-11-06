@@ -1,14 +1,16 @@
 #!/bin/bash
 
-# Define your input file paths here
+# Define your input paths here
 # Paths may be absolute or relative, depending on what the current working directory is. 
 # For example, this is a relative path:
 # examples/inputs_for_examples/mpg.csv
 # And this is an absolute path:
-# /Users/username/GentzkowLabTemplate/examples/inputs_for_examples/mpg.csv
+# /Users/username/GentzkowLabTemplate/examples/inputs_for_examples/mpg.csv.
+# You can also use paths to folders:
+# /Users/username/GentzkowLabTemplate/examples/inputs_for_examples/
 INPUT_FILES=(
-    /path/to/your/input/file.csv # replace with your actual input file paths
-    # Add more input file paths as needed
+    /path/to/your/input/file.csv # replace with your actual input paths
+    # Add more input paths as needed
 )
 
 # Path to current module
@@ -21,12 +23,12 @@ mkdir -p "${MAKE_SCRIPT_DIR}/input"
 # Variable to track if any links were created
 links_created=false
 
-# Loop through the input file paths
+# Loop through the input paths
 for file_path in "${INPUT_FILES[@]}"; do
-    if [[ -f "$file_path" ]]; then  # check if the file exists
+    if [[ -e "$file_path" ]]; then  # check if the path exists
       file_name=$(basename "$file_path")
       abs_path=$(realpath "$file_path")  # get absolute path
-      ln -sf "$abs_path" "${MAKE_SCRIPT_DIR}/input/$file_name"  # create symlink
+      ln -sfn "$abs_path" "${MAKE_SCRIPT_DIR}/input/$file_name"  # create symlink
       links_created=true
     else
       echo -e "\033[0;31mWarning\033[0m in \033[0;34mget_inputs.sh\033[0m: $file_path does not exist or is not a valid file path." >&2
