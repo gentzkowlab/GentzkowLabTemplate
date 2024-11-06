@@ -45,8 +45,8 @@ mkdir -p "${MAKE_SCRIPT_DIR}/input"
 (
 cd "${MAKE_SCRIPT_DIR}/source"
 
-run_shell my_shell_script.sh "${LOGFILE}"
-# run_xxx my_script.xx "${LOGFILE}"
+run_shell my_shell_script.sh "${LOGFILE}" || exit 1
+# run_xxx my_script.xx "${LOGFILE}" || exit 1
 ) || false
 
 cd "${MAKE_SCRIPT_DIR}" # return to original working directory
