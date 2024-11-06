@@ -11,6 +11,8 @@ error_handler() {
 REPO_ROOT=$(dirname "$(realpath "$0")")
 
 # Check if local_env.sh exists
+echo "Checking if local_env.sh exists..."
+echo "It is required to run the module correctly according to your local setup."
 if [ ! -f "${REPO_ROOT}/local_env.sh" ]; then
     echo "The file local_env.sh was not found at the root of the repository."
     echo -e "\n\033[0;34mPlease choose:\033[0m Would you like to create local_env.sh from /lib/setup/local_env_template.sh? (y/n): "
@@ -30,7 +32,8 @@ if [ ! -f "${REPO_ROOT}/local_env.sh" ]; then
 fi
 
 # Run get_inputs.sh scripts
-echo -e "\n\033[0;34mPlease choose:\033[0m Would you like to run all get_inputs.sh scripts in the repository? (y/n): "
+echo -e "\nNow, we will loop through the repository and run scripts to add input files to each module."
+echo -e "\033[0;34mPlease choose:\033[0m Would you like to run all get_inputs.sh scripts in the repository? (y/n): "
 read -r get_inputs_confirm
 if [[ "$get_inputs_confirm" == "y" ]]; then
     # Find all get_inputs.sh scripts
@@ -49,6 +52,7 @@ if [[ "$get_inputs_confirm" == "y" ]]; then
 fi
 
 # Optional: Create external symlinks
+echo -e "\nNow, we will create links to external files, if there are any."
 source "${REPO_ROOT}/lib/shell/make_externals.sh"
 
 # Setup Completed
