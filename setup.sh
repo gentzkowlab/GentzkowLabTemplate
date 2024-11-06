@@ -1,8 +1,7 @@
 #!/bin/bash
 set -e
 
-SETUP_SCRIPT_DIR=$(dirname "$(realpath "$0")")
-REPO_ROOT=$(realpath "$SETUP_SCRIPT_DIR/../../")
+REPO_ROOT=$(dirname "$(realpath "$0")")
 
 # Check if local_env.sh exists
 if [ ! -f "${REPO_ROOT}/local_env.sh" ]; then
