@@ -31,11 +31,9 @@ source "${REPO_ROOT}/lib/shell/run_shell.sh"
 rm -rf "${MAKE_SCRIPT_DIR}/output"
 mkdir -p "${MAKE_SCRIPT_DIR}/output"
 
-# Copy and/or symlink input files to local /input/ directory
-# (Make sure this section is updated to pull in all needed input files!)
-rm -rf "${MAKE_SCRIPT_DIR}/input"
-mkdir -p "${MAKE_SCRIPT_DIR}/input"
-# cp my_source_files "${MAKE_SCRIPT_DIR}/input/"
+# Add symlink input files to local /input/ directory
+# (Make sure get_inputs.sh is updated to pull in all needed input files!)
+source "${MAKE_SCRIPT_DIR}/get_inputs.sh"
 
 # Run scripts
 # (Do this in a subshell so we return to the original working directory
