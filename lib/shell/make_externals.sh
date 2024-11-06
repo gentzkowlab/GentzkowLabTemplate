@@ -1,7 +1,7 @@
 #!/bin/bash   
 set -e
 
-MAKE_EXTERNALS_SCRIPT_DIR=$(dirname "$(realpath "$0")")
+MAKE_EXTERNALS_SCRIPT_DIR=$(dirname "$(realpath "${BASH_SOURCE[0]}")")
 REPO_ROOT=$(realpath "$MAKE_EXTERNALS_SCRIPT_DIR/../../")
 
 source "${REPO_ROOT}/local_env.sh"
