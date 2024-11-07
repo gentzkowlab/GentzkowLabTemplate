@@ -15,6 +15,12 @@ run_lyx() {
         OUTPUT_DIR="../output"
     fi
     
+    # set LyX command if unset
+    if [ -z "$lyxCmd" ]; then
+        echo -e "\nNo LyX command set. Using default: lyx"
+        lyxCmd="lyx"
+    fi
+
     # Cleanup 
     cleanup() {
         if [ -f "${programname}.pdf" ]; then
@@ -41,26 +47,18 @@ run_lyx() {
     trap 'cleanup' EXIT
 
     # check if lyx command exists
-    if ! command -v lyx &> /dev/null; then
+    if ! command -v "$lyxCmd" &> /dev/null; then
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\033[0;31mProgram error\033[0m at ${error_time}: LyX not found. Ensure LyX is installed."
         echo "Program Error at ${error_time}: LyX not found." >> "${logfile}"
         exit 1
     fi
 
-    # find lyx command path
-    lyx_path=$(which lyx)
-
-    if [ -z "$lyx_path" ]; then
-        echo -e "\033[0;31mProgram error\033[0m at ${error_time}: LyX not found. Please ensure it is installed and set up for command line usage"
-        exit 1
-    fi
-
     # check if the target script exists
     if [ ! -f "${programname}.lyx" ]; then
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
-        echo -e "\n\033[0;31mProgram error\033[0m at ${error_time}: script ${programname}.tex not found." 
-        echo "Program Error at ${error_time}: script ${programname}.tex not found." >> "${logfile}"
+        echo -e "\n\033[0;31mProgram error\033[0m at ${error_time}: script ${programname}.lyx not found." 
+        echo "Program Error at ${error_time}: script ${programname}.lyx not found." >> "${logfile}"
         exit 1
     fi
 
@@ -70,9 +68,8 @@ run_lyx() {
     # log start time for the script
     echo -e "\nScript ${programname}.lyx in lyx -e pdf started at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
 
-    # run command and capture both stdout and stderr in the output variable
-    # we run using the full path to prevent conversion issues during compilation
-    output=$("$lyx_path" --export pdf2 "${programname}.lyx" >> "$logfile" 2>&1)
+    # run LyX command with export option and capture both stdout and stderr in the output variable
+    output=$("$lyxCmd" --export pdf2 "${programname}.lyx" >> "$logfile" 2>&1)
     return_code=$?  # capture the exit status
 
     # perform cleanup
