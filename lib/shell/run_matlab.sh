@@ -2,6 +2,7 @@
 
 unset run_matlab
 run_matlab () {
+    trap - ERR # allow internal error handling
 
     # get arguments
     program="$1"
@@ -19,11 +20,19 @@ run_matlab () {
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\033[0;31mProgram error\033[0m at ${error_time}: MATLAB not found. Make sure command line usage is properly set up."
         echo "Program Error at ${error_time}: MATLAB not found." >> "${logfile}"
-        return 1  # exit early with an error code
+        exit 1  # exit early with an error code
+    fi
+
+    # check if the target script exists
+    if [ ! -f "${program}" ]; then
+        error_time=$(date '+%Y-%m-%d %H:%M:%S')
+        echo -e "\n\033[0;31mProgram error\033[0m at ${error_time}: script ${program} not found." 
+        echo "Program Error at ${error_time}: script ${program} not found." >> "${logfile}"
+        exit 1
     fi
 
     # capture the content of output folder before running the script
-    files_before=$(ls -1 "$OUTPUT_DIR" | grep -v "make.log")
+    files_before=$(find "$OUTPUT_DIR" -type f ! -name "make.log" -exec basename {} + | tr '\n' ' ')
 
     # log start time for the script
     echo -e "\nScript ${program} in MATLAB started at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
@@ -33,7 +42,7 @@ run_matlab () {
     return_code=$?  # capture the exit status
 
     # capture the content of output folder after running the script
-    files_after=$(ls -1 "$OUTPUT_DIR" | grep -v "make.log")
+    files_after=$(find "$OUTPUT_DIR" -type f ! -name "make.log" -exec basename {} + | tr '\n' ' ')
 
     # determine the new files that were created
     created_files=$(comm -13 <(echo "$files_before") <(echo "$files_after"))
