@@ -33,9 +33,9 @@ while [ "$i" -lt "$((array_start_index + array_length))" ]; do
     i=$((i + 1))
 done
 
-# Create the 'externals' folder if there are links to create
+# Create the 'external' folder if there are links to create
 if [ "$create_links" = true ]; then
-    mkdir -p "${REPO_ROOT}/externals"
+    mkdir -p "${REPO_ROOT}/external"
 fi
 
 # Loop through the EXTERNAL_NAMES and EXTERNAL_PATHS arrays and create symlinks
@@ -46,7 +46,7 @@ while [ "$i" -lt "$((array_start_index + array_length))" ]; do
 
     if [ -n "$name" ]; then
         if [ -d "$target_path" ]; then
-            ln -sfn "$target_path" "${REPO_ROOT}/externals/$name"
+            ln -sfn "$target_path" "${REPO_ROOT}/external/$name"
             printf "\nSymlink created for %s -> %s\n" "$name" "$target_path"
         else
             printf "\033[0;31mWarning\033[0m: Target path '%s' does not exist for %s\n" "$target_path" "$name"
