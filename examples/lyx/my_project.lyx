@@ -1,0 +1,604 @@
+#LyX 2.4 created this file. For more info see https://www.lyx.org/
+\lyxformat 620
+\begin_document
+\begin_header
+\save_transient_properties true
+\origin unavailable
+\textclass article
+\begin_preamble
+\usepackage{float}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage{datetime}
+\usepackage{booktabs}
+\usepackage{dcolumn}
+\usepackage[english]{babel}
+\usepackage{times}
+\usepackage{url}
+\usepackage[small]{caption}
+\usepackage[bottom,hang,flushmargin]{footmisc}
+
+\DeclareMathOperator{\Var}{Var}
+\DeclareMathOperator{\Corr}{Corr}
+\DeclareMathOperator{\Cov}{Cov}
+\DeclareMathOperator{\E}{E}
+
+
+\geometry{verbose,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in}
+\onehalfspacing
+\end_preamble
+\options hyperfootnotes=false
+\use_default_options false
+\begin_modules
+theorems-ams
+\end_modules
+\maintain_unincluded_children no
+\language english
+\language_package none
+\inputencoding auto-legacy
+\fontencoding default
+\font_roman "times" "default"
+\font_sans "default" "default"
+\font_typewriter "default" "default"
+\font_math "auto" "auto"
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_roman_osf false
+\font_sans_osf false
+\font_typewriter_osf false
+\font_sf_scale 100 100
+\font_tt_scale 100 100
+\use_microtype false
+\use_dash_ligatures true
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\float_placement H
+\paperfontsize 12
+\spacing onehalf
+\use_hyperref false
+\papersize default
+\use_geometry true
+\use_package amsmath 2
+\use_package amssymb 2
+\use_package cancel 0
+\use_package esint 1
+\use_package mathdots 0
+\use_package mathtools 0
+\use_package mhchem 0
+\use_package stackrel 0
+\use_package stmaryrd 0
+\use_package undertilde 0
+\cite_engine natbib
+\cite_engine_type authoryear
+\biblio_style plainnat
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date false
+\justification true
+\use_refstyle 0
+\use_formatted_ref 0
+\use_minted 0
+\use_lineno 0
+\index Index
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 1in
+\topmargin 1in
+\rightmargin 1in
+\bottommargin 1in
+\secnumdepth 3
+\tocdepth 3
+\paragraph_separation indent
+\paragraph_indentation default
+\is_math_indent 0
+\math_numbering_side default
+\quotes_style english
+\dynamic_quotes 0
+\papercolumns 1
+\papersides 1
+\paperpagestyle default
+\tablestyle default
+\tracking_changes false
+\output_changes false
+\change_bars false
+\postpone_fragile_content false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\docbook_table_output 0
+\docbook_mathml_prefix 1
+\end_header
+
+\begin_body
+
+\begin_layout Title
+\noindent
+
+
+O Praeclarum Titulum
+\end_layout
+
+\begin_layout Author
+\noindent
+Author 1,
+
+\series bold
+ 
+\series default
+\shape italic
+Affiliation
+\series bold
+\shape default
+
+\begin_inset Foot
+status open
+
+\begin_layout Plain Layout
+Acknowledgements
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\series default
+Author 2,
+ 
+\shape italic
+Affiliation
+\series bold
+\shape default
+
+\begin_inset Newline newline
+\end_inset
+
+
+\end_layout
+
+\begin_layout Date
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Abstract
+\noindent
+Lorem ipsum dolor sit amet,
+ consectetur adipiscing elit,
+ sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+ Ut enim ad minim veniam,
+ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+ Excepteur sint occaecat cupidatat non proident,
+ sunt in culpa qui officia deserunt mollit anim id est laborum.
+\end_layout
+
+\begin_layout Abstract
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{spacing}{1.4}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Introduction
+\end_layout
+
+\begin_layout Standard
+Lorem ipsum dolor sit amet,
+ consectetur adipiscing elit,
+ sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+ Vulputate odio ut enim blandit 
+\begin_inset CommandInset citation
+LatexCommand citep
+key "Arrow1974,Becker2009,Friedman1970"
+literal "false"
+
+\end_inset
+
+.Elementum pulvinar etiam non quam.
+ Ultrices mi tempus imperdiet nulla malesuada pellentesque.
+ Quis auctor elit sed vulputate mi sit.
+ Pretium quam vulputate dignissim suspendisse in.
+ Amet mattis vulputate enim nulla aliquet porttitor.
+ Fermentum dui faucibus in ornare.
+ In egestas erat imperdiet sed.
+ Phasellus vestibulum lorem sed risus ultricies tristique nulla aliquet.
+ Egestas integer eget aliquet nibh praesent tristique magna sit.
+ Mi quis hendrerit dolor magna eget est lorem ipsum dolor.
+ Neque egestas congue quisque egestas diam in arcu.
+ Congue mauris rhoncus aenean vel elit scelerisque mauris pellentesque.
+ Augue eget arcu dictum varius duis at.
+ Elementum pulvinar etiam non quam lacus suspendisse faucibus.
+ Congue mauris rhoncus aenean vel elit.
+ Dignissim suspendisse in est ante in nibh mauris cursus.
+\end_layout
+
+\begin_layout Standard
+Congue quisque egestas diam in arcu cursus euismod.
+ Ipsum a arcu cursus vitae.
+ Malesuada nunc vel risus commodo viverra maecenas accumsan lacus vel.
+ Nisl tincidunt eget nullam non.
+ Sed faucibus turpis in eu mi bibendum.
+ Iaculis urna id volutpat lacus laoreet non curabitur gravida.
+ Bibendum arcu vitae elementum curabitur vitae.
+ Pretium fusce id velit ut tortor pretium viverra suspendisse.
+ Congue quisque egestas diam in arcu.
+ Posuere lorem ipsum dolor sit amet consectetur adipiscing.
+ Et egestas quis ipsum suspendisse.
+ Molestie at elementum eu facilisis sed.
+ Sapien faucibus et molestie ac feugiat sed lectus vestibulum.
+ Odio facilisis mauris sit amet massa vitae.
+ Ullamcorper eget nulla facilisi etiam dignissim diam quis.
+\end_layout
+
+\begin_layout Standard
+At consectetur lorem donec massa sapien faucibus et molestie.
+ Sollicitudin aliquam ultrices sagittis orci a scelerisque purus semper.
+ Amet mauris commodo quis imperdiet massa tincidunt nunc pulvinar.
+ Faucibus a pellentesque sit amet.
+ Purus viverra accumsan in nisl.
+ Enim neque volutpat ac tincidunt vitae semper.
+ Enim nunc faucibus a pellentesque sit amet.
+ Pellentesque sit amet porttitor eget.
+ Placerat vestibulum lectus mauris ultrices eros.
+ Mi sit amet mauris commodo quis imperdiet massa tincidunt.
+ Quis eleifend quam adipiscing vitae proin sagittis nisl.
+ Non odio euismod lacinia at quis risus sed vulputate.
+ A cras semper auctor neque vitae tempus quam pellentesque.
+ Sit amet mattis vulputate enim nulla aliquet.
+ Vitae semper quis lectus nulla at volutpat diam ut venenatis.
+ Ultricies mi quis hendrerit dolor.
+ Non nisi est sit amet facilisis magna etiam.
+ In hac habitasse platea dictumst vestibulum rhoncus est.
+ Sed risus pretium quam vulputate dignissim suspendisse in est ante.
+\end_layout
+
+\begin_layout Section
+Data
+\end_layout
+
+\begin_layout Standard
+Lorem ipsum dolor sit amet,
+ consectetur adipiscing elit,
+ sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+ Ut enim ad minim veniam,
+ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+ Excepteur sint occaecat cupidatat non proident,
+ sunt in culpa qui officia deserunt mollit anim id est laborum.
+\end_layout
+
+\begin_layout Standard
+Lorem ipsum dolor sit amet,
+ consectetur adipiscing elit,
+ sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+ Ut enim ad minim veniam,
+ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+ Excepteur sint occaecat cupidatat non proident,
+ sunt in culpa qui officia deserunt mollit anim id est laborum.
+\end_layout
+
+\begin_layout Section
+Results
+\end_layout
+
+\begin_layout Standard
+Lorem ipsum dolor sit amet,
+ consectetur adipiscing elit,
+ sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+ Ut enim ad minim veniam,
+ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+ Excepteur sint occaecat cupidatat non proident,
+ sunt in culpa qui officia deserunt mollit anim id est laborum.
+\end_layout
+
+\begin_layout Standard
+Lorem ipsum dolor sit amet,
+ consectetur adipiscing elit,
+ sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+ Ut enim ad minim veniam,
+ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+ Excepteur sint occaecat cupidatat non proident,
+ sunt in culpa qui officia deserunt mollit anim id est laborum.
+\end_layout
+
+\begin_layout Section
+Conclusion
+\end_layout
+
+\begin_layout Standard
+Lorem ipsum dolor sit amet,
+ consectetur adipiscing elit,
+ sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+ Ut enim ad minim veniam,
+ quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+ Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+ Excepteur sint occaecat cupidatat non proident,
+ sunt in culpa qui officia deserunt mollit anim id est laborum.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{spacing}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset bibtex
+LatexCommand bibtex
+btprint "btPrintCited"
+bibfiles "my_project"
+options "apalike"
+encoding "default"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\align block
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+leftskip=2em 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+parindent=-2em
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+onehalfspacing
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+noindent
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+parindent=2em
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+leftskip=0em
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment center
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Cibus in urbe
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../input/figure_city.jpg
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Float figure
+placement document
+alignment center
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Cibus in via
+\end_layout
+
+\end_inset
+
+
+\begin_inset Graphics
+	filename ../input/figure_hwy.jpg
+	scale 30
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage pagebreak
+\end_inset
+
+
+\begin_inset Float table
+placement document
+alignment center
+wide false
+sideways false
+status open
+
+\begin_layout Plain Layout
+\begin_inset Caption Standard
+
+\begin_layout Plain Layout
+
+\series bold
+Multae stellae
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset CommandInset include
+LatexCommand include
+filename "../input/table_reg.tex"
+literal "true"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document

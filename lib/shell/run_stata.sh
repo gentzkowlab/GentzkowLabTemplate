@@ -36,7 +36,8 @@ run_stata() {
     files_before=$(find "$OUTPUT_DIR" -type f ! -name "make.log" -exec basename {} + | tr '\n' ' ')
 
     # log start time for the script
-    echo -e "\nScript ${program} in ${stataCmd} started at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
+    start_time=$(date '+%Y-%m-%d %H:%M:%S')
+    echo -e "\nScript ${program} in ${stataCmd} started at ${start_time}" | tee -a "${logfile}"
 
     # run command and capture both stdout and stderr in log file
     ${stataCmd} -e do "${program}" >> "${logfile}" 2>&1
@@ -47,7 +48,7 @@ run_stata() {
     fi
 
     # capture the content of output folder after running the script
-    files_after=$(find "$OUTPUT_DIR" -type f ! -name "make.log" -exec basename {} + | tr '\n' ' ')
+    files_after=$(find "$OUTPUT_DIR" -type f -newermt "$start_time" ! -name "make.log" -exec basename {} + | tr '\n' ' ')
 
     # determine the new files that were created
     created_files=$(comm -13 <(echo "$files_before") <(echo "$files_after"))
