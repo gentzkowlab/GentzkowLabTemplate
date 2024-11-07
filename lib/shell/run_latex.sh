@@ -58,7 +58,8 @@ run_latex() {
     files_before=$(find "$OUTPUT_DIR" -type f ! -name "make.log" -exec basename {} + | tr '\n' ' ')
 
     # log start time for the script
-    echo -e "\nScript ${programname}.tex in latexmk -pdf -bibtex started at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
+    start_time=$(date '+%Y-%m-%d %H:%M:%S')
+    echo -e "\nScript ${programname}.tex in latexmk -pdf -bibtex started at ${start_time}" | tee -a "${logfile}"
 
     # run command and capture both stdout and stderr in the output variable
     output=$(latexmk -interaction=nonstopmode -f "${programname}.tex" -pdf -bibtex 2>&1)
@@ -68,8 +69,8 @@ run_latex() {
     cleanup
 
     # capture the content of output folder after running the script
-    files_after=$(find "$OUTPUT_DIR" -type f ! -name "make.log" -exec basename {} + | tr '\n' ' ')
-
+     files_after=$(find "$OUTPUT_DIR" -type f -newermt "$start_time" ! -name "make.log" -exec basename {} + | tr '\n' ' ')
+    
     # determine the new files that were created
     created_files=$(comm -13 <(echo "$files_before") <(echo "$files_after"))
 

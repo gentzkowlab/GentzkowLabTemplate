@@ -66,7 +66,8 @@ run_lyx() {
     files_before=$(find "$OUTPUT_DIR" -type f ! -name "make.log" -exec basename {} + | tr '\n' ' ')
 
     # log start time for the script
-    echo -e "\nScript ${programname}.lyx in lyx -e pdf started at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
+    start_time=$(date '+%Y-%m-%d %H:%M:%S')
+    echo -e "\nScript ${programname}.lyx in lyx -e pdf started at ${start_time}" | tee -a "${logfile}"
 
     # run LyX command with export option and capture both stdout and stderr in the output variable
     output=$("$lyxCmd" --export pdf2 "${programname}.lyx" >> "$logfile" 2>&1)
@@ -76,8 +77,8 @@ run_lyx() {
     cleanup
 
     # capture the content of output folder after running the script
-    files_after=$(find "$OUTPUT_DIR" -type f ! -name "make.log" -exec basename {} + | tr '\n' ' ')
-
+    files_after=$(find "$OUTPUT_DIR" -type f -newermt "$start_time" ! -name "make.log" -exec basename {} + | tr '\n' ' ')
+    
     # determine the new files that were created
     created_files=$(comm -13 <(echo "$files_before") <(echo "$files_after"))
 

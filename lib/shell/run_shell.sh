@@ -24,14 +24,15 @@ run_shell () {
     files_before=$(find "$OUTPUT_DIR" -type f ! -name "make.log" -exec basename {} + | tr '\n' ' ')
 
     # log start time for the script
-    echo -e "\nScript ${program} in ${shellCmd} started at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
+    start_time=$(date '+%Y-%m-%d %H:%M:%S')
+    echo -e "\nScript ${program} in ${shellCmd} started at ${start_time}" | tee -a "${logfile}"
 
     # run command and capture both stdout and stderr in the output variable
     output=$(${SHELL} "${program}" 2>&1)
     return_code=$?
 
     # capture the content of the output folder after running the script
-    files_after=$(find "$OUTPUT_DIR" -type f ! -name "make.log" -exec basename {} + | tr '\n' ' ')
+    files_after=$(find "$OUTPUT_DIR" -type f -newermt "$start_time" ! -name "make.log" -exec basename {} + | tr '\n' ' ')
 
     # determine the new files that were created
     created_files=$(comm -13 <(echo "$files_before") <(echo "$files_after"))
