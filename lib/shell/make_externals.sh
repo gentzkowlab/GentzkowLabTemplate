@@ -18,19 +18,21 @@ done
 # Create the 'externals' folder if there are links to create
 if [ "$create_links" = true ]; then
     mkdir -p "${REPO_ROOT}/externals"
+fi
 
-    # Loop through the EXTERNAL_NAMES and EXTERNAL_PATHS arrays and create symlinks
-    for i in "${!EXTERNAL_NAMES[@]}"; do
-        name="${EXTERNAL_NAMES[$i]}"
-        target_path="${EXTERNAL_PATHS[$i]}"
-        
-        if [ -d "$target_path" ]; then
-            ln -sfn "$target_path" "${REPO_ROOT}/externals/$name"
-            echo -e "\nSymlink created for $name -> $target_path"
-        else
-            echo -e "\033[0;31mWarning\033[0m: Target path $target_path does not exist for $name"
-        fi
-    done
-else
-    echo -e "\n\033[0;34mNote:\033[0m There were no external input links to create in \033[0;34mlocal_env.sh\033[0m."
+# Loop through the EXTERNAL_NAMES and EXTERNAL_PATHS arrays and create symlinks
+for i in "${!EXTERNAL_NAMES[@]}"; do
+    name="${EXTERNAL_NAMES[$i]}"
+    target_path="${EXTERNAL_PATHS[$i]}"
+    
+    if [ -d "$target_path" ]; then
+        ln -sfn "$target_path" "${REPO_ROOT}/externals/$name"
+        echo -e "\nSymlink created for $name -> $target_path"
+    else
+        echo -e "\033[0;31mWarning\033[0m: Target path $target_path does not exist for $name"
+    fi
+done
+
+if [ "$create_links" = false ]; then
+    echo -e "\n\033[0;34mNote:\033[0m No external input links were created in \033[0;34mlocal_env.sh\033[0m."
 fi
