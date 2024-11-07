@@ -23,5 +23,5 @@ export lyxCmd="lyx"
 ###############################################################################
 
 # Add paths to external resources required by your repository here
-EXTERNAL_NAMES=("dropbox")
-EXTERNAL_PATHS=('/Users/shiqiyang/GSLab Dropbox/gslab_data')
+# EXTERNAL_NAMES=("dropbox" "drive")
+# EXTERNAL_PATHS=("/Users/username/MyDropboxPath" "/Users/username/MyGoogleDrive")
