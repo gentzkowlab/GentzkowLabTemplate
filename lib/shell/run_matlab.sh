@@ -11,8 +11,8 @@ run_matlab () {
 
     # set MATLAB command if unset
     if [ -z "$matlabCmd" ]; then
-        echo -e "\nNo MATLAB command set. Using default: matlab -nodisplay -batch"
-        matlabCmd="matlab -nodisplay -batch"
+        echo -e "\nNo MATLAB command set. Using default: matlab"
+        matlabCmd="matlab"
     fi
 
     # check if the command exists before running, log error if does not
@@ -38,7 +38,7 @@ run_matlab () {
     echo -e "\nScript ${program} in MATLAB started at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
 
     # run MATLAB command and capture both stdout and stderr in the output variable
-    output=$(${matlabCmd} "run('${program}'); exit;" 2>&1)
+    output=$(${matlabCmd} -nodisplay -batch "run('${program}'); exit;" 2>&1)
     return_code=$?  # capture the exit status
 
     # capture the content of output folder after running the script
