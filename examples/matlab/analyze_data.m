@@ -1,5 +1,9 @@
 % This script performs regressions and generates scatter plots
 
+if ~isdeployed
+  main();
+end
+
 function main()
   mpg_clean = readtable('../input/mpg.csv');
   regression_table(mpg_clean);
@@ -65,7 +69,3 @@ function city_figure(data)
   saveas(gcf, '../output/figure_city.jpg');
 end
 
-% Execute
-if ~isdeployed
-  main();
-end
