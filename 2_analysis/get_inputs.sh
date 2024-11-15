@@ -1,9 +1,9 @@
 #!/bin/bash
 
 # Define your input paths here
-# Paths may be absolute or relative, depending on what the current working directory is. 
+# Paths may be absolute or relative to the current module.
 # For example, this is a relative path:
-# examples/inputs_for_examples/mpg.csv
+# ../examples/inputs_for_examples/mpg.csv
 # And this is an absolute path:
 # /Users/username/GentzkowLabTemplate/examples/inputs_for_examples/mpg.csv.
 # You can also use paths to folders:
