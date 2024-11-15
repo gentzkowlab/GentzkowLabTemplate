@@ -43,7 +43,10 @@ if [[ "$get_inputs_confirm" == "y" ]]; then
         module_dir=$(dirname "$get_inputs_script")
         module_name=$(basename "$module_dir")
         echo -e "\nProcessing module \033[35m${module_name}\033[0m"
-        source "$get_inputs_script"
+        (
+            cd "$module_dir" 
+            ${SHELL} "$get_inputs_script"
+        )
     done
     echo -e "\nAll get_inputs.sh scripts have been run."
 
