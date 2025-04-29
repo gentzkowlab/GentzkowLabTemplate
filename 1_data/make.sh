@@ -10,8 +10,8 @@ error_handler() {
 
 # Set paths
 # (Make sure REPO_ROOT is set to point to the root of the repository!)
-MAKE_SCRIPT_DIR=$(dirname "$(realpath "$0")")
-REPO_ROOT=$(realpath "$MAKE_SCRIPT_DIR/../")
+MAKE_SCRIPT_DIR="$(cd "$(dirname -- "$0")" && pwd -P)"
+REPO_ROOT="$(cd "$MAKE_SCRIPT_DIR/../" && pwd -P)"
 MODULE=$(basename "$MAKE_SCRIPT_DIR")
 LOGFILE="${MAKE_SCRIPT_DIR}/output/make.log"
 
