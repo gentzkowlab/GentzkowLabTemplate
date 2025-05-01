@@ -3,8 +3,8 @@ set -e
 
 # Check if REPO_ROOT is set
 if [ -z "${REPO_ROOT}" ]; then
-    MAKE_EXTERNALS_SCRIPT_DIR=$(dirname "$(realpath "$0")")
-    REPO_ROOT=$(realpath "$MAKE_EXTERNALS_SCRIPT_DIR/../../")
+    MAKE_EXTERNALS_SCRIPT_DIR="$(cd "$(dirname -- "$0")" && pwd -P)"
+    REPO_ROOT="$(cd "$MAKE_EXTERNALS_SCRIPT_DIR/../.." && pwd -P)"
 fi
 
 source "${REPO_ROOT}/local_env.sh"
