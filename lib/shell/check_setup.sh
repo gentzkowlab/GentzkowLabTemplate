@@ -2,8 +2,8 @@
 
 # Check if REPO_ROOT is set
 if [ -z "${REPO_ROOT}" ]; then
-    CHECK_SETUP_SCRIPT_DIR=$(dirname "$(realpath "$0")")
-    REPO_ROOT=$(realpath "$CHECK_SETUP_SCRIPT_DIR/../../")
+    CHECK_SETUP_SCRIPT_DIR="$(cd "$(dirname -- "$0")" && pwd -P)"
+    REPO_ROOT="$(cd "$CHECK_SETUP_SCRIPT_DIR/../../" && pwd -P)"
 fi
 
 # Check if local_env.sh exists

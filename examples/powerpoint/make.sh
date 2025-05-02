@@ -3,9 +3,9 @@ set -e
 
 # Set paths
 # (Make sure REPO_ROOT is set to point to the root of the repository!)
-MAKE_SCRIPT_DIR=$(dirname "$(realpath "$0")")
-REPO_ROOT=$(realpath "$MAKE_SCRIPT_DIR/../")
-MODULE=$(basename "$MAKE_SCRIPT_DIR")
+MAKE_SCRIPT_DIR="$(cd "$(dirname -- "$0")" && pwd -P)"
+REPO_ROOT="$(cd "$MAKE_SCRIPT_DIR/../" && pwd -P)"
+MODULE="$(basename "$MAKE_SCRIPT_DIR")"
 
 # Tell user what we're doing
 echo -e "\n\nMaking \033[35m${MODULE}\033[0m module with shell: ${SHELL}"
