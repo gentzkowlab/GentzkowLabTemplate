@@ -8,7 +8,7 @@ error_handler() {
     exit 1 # early exit with error code
 }
 
-REPO_ROOT=$(dirname "$(realpath "$0")")
+REPO_ROOT="$(cd "$(dirname -- "$0")" && pwd -P)"
 
 # Check if local_env.sh exists
 echo "Checking if local_env.sh exists..."
