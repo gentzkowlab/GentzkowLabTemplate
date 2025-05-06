@@ -4,9 +4,6 @@
 # `/temp/` subdirectories are ignored as they are temporary by design
 *temp/
 
-# `/input/` subdirectories are ignored as they contain symlinks with user-specific paths
-*input/
-
 # `/external/` is ignored as it contains user-specific paths
 *external/
 
