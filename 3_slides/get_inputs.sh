@@ -27,8 +27,7 @@ links_created=false
 for file_path in "${INPUT_FILES[@]}"; do
     if [[ -e "$file_path" ]]; then  # check if the path exists
       file_name=$(basename "$file_path")
-      abs_path=$(realpath "$file_path")  # get absolute path
-      ln -sfn "$abs_path" "${MAKE_SCRIPT_DIR}/input/$file_name"  # create symlink
+      ln -sfn "../$file_path" "${MAKE_SCRIPT_DIR}/input/$file_name"  # create symlink
       links_created=true
     else
       echo -e "\033[0;31mWarning\033[0m in \033[0;34mget_inputs.sh\033[0m: $file_path does not exist or is not a valid file path." >&2
