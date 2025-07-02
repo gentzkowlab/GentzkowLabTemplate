@@ -6,7 +6,17 @@ See the Examples section of the [template instructions](https://github.com/gentz
 
 * `slides.pptx` is an example PowerPoint file to be converted to PDF.
 
+### Steps to set up the PowerPoint example
 
+1. Place `slides.pptx` in `3_slides/source/` (or in the source folder in any module of your choice).
+2. Replace these lines in `3_slides/make.sh`:
+  
+    ```bash
+    #source "${REPO_ROOT}/lib/shell/run_xxx.sh"
+    ```
+    ```bash
+    # run_xxx my_script.xx "${LOGFILE}" || exit 1
+    ```
 
     with:
 
