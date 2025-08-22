@@ -1,3 +1,5 @@
+# GentzkowLabTemplate Docs
+
 This website is built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
 
 ## Development
