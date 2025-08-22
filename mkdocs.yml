@@ -21,7 +21,7 @@ theme:
     - content.code.select
     - content.tabs.link
     - content.last-updated
-    # - content.action.edit
+    - content.action.edit
     - content.action.view
     - search.suggest
     - search.highlight
