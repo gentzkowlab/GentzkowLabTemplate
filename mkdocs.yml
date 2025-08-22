@@ -95,7 +95,7 @@ extra_javascript:
 
 nav:
   - Template:
-    - Welcome: template/index.md
+    - Welcome: index.md
     - Using the template:
       - Requirements: template/requirements.md
       - Getting started: template/getting_started.md
