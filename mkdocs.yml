@@ -94,6 +94,14 @@ extra_javascript:
   - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
 
 nav:
-  - Home: 
-    - Welcome: index.md
-    - How to use this guide: home/how_to.md
+  - Template:
+    - Welcome: template/index.md
+    - Using the template:
+      - Requirements: template/requirements.md
+      - Getting started: template/getting_started.md
+      - Examples: template/examples.md
+      - Repository organization: template/repository_organization.md
+    # - Background:
+  - FAQ: faq.md
+  - About: 
+    - How to use this site: about/how_to.md
