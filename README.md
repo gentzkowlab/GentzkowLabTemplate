@@ -1,3 +1,5 @@
+This website is built with [Material for MkDocs](https://squidfunk.github.io/mkdocs-material/).
+
 ## Development
 
 ### Preview as you write
