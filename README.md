@@ -11,17 +11,22 @@ To get started, follow the steps below. For complete documentation, see the [Gen
 
 ### Getting started
 
-1. Clone the repository and move into the project directory:
+1. Clone the repository and move into its directory:
 
     ```sh
     git clone https://github.com/YourUsername/YourRepoName.git
     cd YourRepoName
     ```
 
-2. Run the setup script to create a local settings file (`local_env.sh`) and populate input files:
+2. Run the setup script to create the local settings file (`local_env.sh`), verify that local executables are correctly installed, and populate input files:
 
     ```sh
     bash setup.sh
+    ```
+
+3. Run the `run_all.sh` script to check that the template runs without error:
+    ```
+    bash run_all.sh
     ```
 
 ### Running modules
@@ -38,16 +43,6 @@ Each module:
 - Reads inputs from its `/input/` directory (populated automatically via `get_inputs.sh`)
 - Runs code from its `/source/` directory
 - Writes outputs to its `/output/` directory
-
-### Running the whole project
-
-To execute the full project pipeline, run:
-
-```sh
-bash run_all.sh
-```
-
-This will run all modules sequentially.
 
 ## Notes
 
