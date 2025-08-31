@@ -69,7 +69,7 @@ markdown_extensions:
       line_spans: __span
       pygments_lang_class: true
       use_pygments: true
-      auto_title: true
+      auto_title: false
   - pymdownx.inlinehilite
   - pymdownx.snippets
   - pymdownx.critic
