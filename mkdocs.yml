@@ -80,7 +80,7 @@ markdown_extensions:
   - pymdownx.arithmatex:
       generic: true
 
-copyright: "&copy; 2025 GentzkowLab"
+copyright: "&copy; 2024 Matthew Gentzkow"
 
 plugins:
   - search
@@ -97,8 +97,8 @@ nav:
   - Template:
     - Welcome: index.md
     - Using the template:
-      - Requirements: template/requirements.md
       - Getting started: template/getting_started.md
+      - Requirements: template/requirements.md
       - Examples: template/examples.md
       - Repository organization: template/repository_organization.md
     # - Background:
