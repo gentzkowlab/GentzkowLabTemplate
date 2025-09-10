@@ -30,8 +30,6 @@ Rplots.pdf
 *.lyx#
 *.lyx.emergency
 
-setup_stata.log
-
 # LaTex auxiliary files
 *.aux
 *.bbl
