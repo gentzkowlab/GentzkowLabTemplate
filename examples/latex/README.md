@@ -16,7 +16,7 @@ See the Examples section of the [template instructions](https://github.com/gentz
     #source "${REPO_ROOT}/lib/shell/run_xxx.sh"
     ```
     ```
-    # run_xxx my_script.xx "${LOGFILE}"
+    # run_xxx my_script.xx "${LOGFILE}" || exit 1
     ```
 
     with
@@ -25,8 +25,10 @@ See the Examples section of the [template instructions](https://github.com/gentz
     source "${REPO_ROOT}/lib/shell/run_latex.sh"
     ```
     ```
-    run_latex my_project_slides.tex "${LOGFILE}"
+    run_latex my_project_slides.tex "${LOGFILE}" || exit 1
     ```
+
+3. Run `3_slides/make.sh`
 
 ### Steps to set up the LaTeX example for building a **paper**
 
@@ -37,7 +39,7 @@ See the Examples section of the [template instructions](https://github.com/gentz
     #source "${REPO_ROOT}/lib/shell/run_xxx.sh"
     ```
     ```
-    # run_xxx my_script.xx "${LOGFILE}"
+    # run_xxx my_script.xx "${LOGFILE}" || exit 1
     ```
 
     with
@@ -46,24 +48,26 @@ See the Examples section of the [template instructions](https://github.com/gentz
     source "${REPO_ROOT}/lib/shell/run_latex.sh"
     ```
     ```
-    run_latex my_project.tex "${LOGFILE}"
+    run_latex my_project.tex "${LOGFILE}" || exit 1
     ```
-3. The example paper `my_project.tex` requires that three input files -- `figure_city.jpg`, `figure_hwy.jpg`, and `table_reg.tex` -- be placed in `/4_paper/input/`. If you set up the example scripts for R, Python, and/or Stata, these files will be created in `2_analysis/output`. You can then have them copied to `/4_paper/input` by replacing this line in `4_paper/make.sh`
+3. The example paper `my_project.tex` requires that three input files -- `figure_city.jpg`, `figure_hwy.jpg`, and `table_reg.tex` -- be placed in `/4_paper/input/`. If you set up the example scripts for R, Python, and/or Stata, these files will be created in `2_analysis/output`. You can then have them copied to `/4_paper/input` by replacing this line in `4_paper/get_inputs.sh`
 
     ```
-    # cp my_source_files "${MAKE_SCRIPT_DIR}/input/"
+    # /path/to/your/input/file.csv (replace with your actual input paths)
     ```
 
     with
   
     ```
-    cp "${REPO_ROOT}/2_analysis/output/"*.jpg "${MAKE_SCRIPT_DIR}/input/"
-    cp "${REPO_ROOT}/2_analysis/output/"*.tex "${MAKE_SCRIPT_DIR}/input/"
+    ../2_analysis/output/*.jpg 
+    ../2_analysis/output/table_reg.tex 
     ```
 
-    Copying the input files from the output of `2_analysis` is the way the template is designed to be used. But if you want to see how to build the paper without setting up the anlaysis scripts, you can copy the inputs directly from the `/examples/inputs_for_examples/` directory by replacing the above line with
+    Copying the input files from the output of `2_analysis` is the way the template is designed to be used. But if you want to see how to build the paper without setting up the anlaysis scripts, you can copy the inputs directly from the `/examples/inputs_for_examples/` directory by replacing the above lines with
 
     ```
-    cp "${REPO_ROOT}/examples/inputs_for_examples/"*.jpg "${MAKE_SCRIPT_DIR}/input/"
-    cp "${REPO_ROOT}/examples/inputs_for_examples/"*.tex "${MAKE_SCRIPT_DIR}/input/"
+    ../examples/inputs_for_examples/*.jpg
+    ../examples/inputs_for_examples/table_reg.tex 
     ```
+
+4. Run `4_paper/make.sh`

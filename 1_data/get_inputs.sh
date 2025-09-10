@@ -1,20 +1,18 @@
 #!/bin/bash
 
 # Define your input paths here
-# Paths may be absolute or relative to the current module.
+# Paths should be relative to the current module.
 # For example, this is a relative path:
 # ../examples/inputs_for_examples/mpg.csv
-# And this is an absolute path:
-# /Users/username/GentzkowLabTemplate/examples/inputs_for_examples/mpg.csv.
 # You can also use paths to folders:
-# /Users/username/GentzkowLabTemplate/examples/inputs_for_examples/
+# ../examples/inputs_for_examples/
 INPUT_FILES=(
     # /path/to/your/input/file.csv (replace with your actual input paths)
     # Add more input paths as needed
 )
 
 # Path to current module
-MAKE_SCRIPT_DIR=$(dirname "$0")
+MAKE_SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd -P)"
 
 # Remove existing input directory and recreate it
 rm -rf "${MAKE_SCRIPT_DIR}/input"
@@ -25,12 +23,14 @@ links_created=false
 
 # Loop through the input paths
 for file_path in "${INPUT_FILES[@]}"; do
-    if [[ -e "$file_path" ]]; then  # check if the path exists
-      file_name=$(basename "$file_path")
-      ln -sfn "../$file_path" "${MAKE_SCRIPT_DIR}/input/$file_name"  # create symlink
-      links_created=true
+    resolved_path="$MAKE_SCRIPT_DIR/$file_path"
+    
+    if [[ -e "$resolved_path" ]]; then  # check if the path exists
+        file_name=$(basename "$resolved_path")
+        ln -sfn "../$file_path" "$MAKE_SCRIPT_DIR/input/$file_name" # create symlink in module input dir
+        links_created=true
     else
-      echo -e "\033[0;31mWarning\033[0m in \033[0;34mget_inputs.sh\033[0m: $file_path does not exist or is not a valid file path." >&2
+        echo -e "\033[0;31mWarning\033[0m in \033[0;34mget_inputs.sh\033[0m: $file_path does not exist or is not a valid file path." >&2
     fi
 done
 
