@@ -38,7 +38,3 @@
 *.toc
 **/source/*.log
 **/source/*.pdf
-
-# Personal conda info
-.conda_info
-
