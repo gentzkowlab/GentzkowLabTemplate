@@ -10,11 +10,3 @@ on run argv
         quit
     end tell
 end run
-
-
-
-
-
-
-
-

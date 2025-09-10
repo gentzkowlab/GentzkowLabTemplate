@@ -63,4 +63,3 @@ echo -e "\nSetup complete."
 
 # Check setup
 source "${REPO_ROOT}/lib/shell/check_setup.sh"
-

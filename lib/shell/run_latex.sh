@@ -100,4 +100,3 @@ run_latex() {
     fi
 
 }
-

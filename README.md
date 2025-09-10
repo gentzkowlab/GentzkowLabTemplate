@@ -1,6 +1,5 @@
 This repository is built on the [GentzkowLabTemplate](https://github.com/gentzkowlab/GentzkowLabTemplate), © 2024 by Matthew Gentzkow and distributed under the [MIT license](https://github.com/gentzkow/GentzkowLabTemplate/blob/main/LICENSE.txt). 
 
-
 ## External links
 
 Use this section to document resources external to this repository that are part of the project.
