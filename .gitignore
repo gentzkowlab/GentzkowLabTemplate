@@ -30,7 +30,7 @@ Rplots.pdf
 *.lyx#
 *.lyx.emergency
 
-# LaTex auxiliary files
+# LaTeX
 *.aux
 *.bbl
 *.blg
@@ -45,9 +45,6 @@ Rplots.pdf
 *.lot
 **/source/*.log
 **/source/*.pdf
-
-# Subversion
-*.svn
 
 # MacOS
 *.DS_Store
