@@ -30,7 +30,7 @@ run_pptx () {
 
     # locate AppleScript code for conversion
     if [ -z "$REPO_ROOT" ]; then
-        REPO_ROOT=$(git rev-parse --show-toplevel)
+        REPO_ROOT="$(git rev-parse --show-toplevel)"
     fi
     scpt="${REPO_ROOT}/lib/applescript/run_pptx.scpt"
     if [ ! -f "$scpt" ]; then

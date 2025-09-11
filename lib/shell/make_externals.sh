@@ -4,7 +4,7 @@ set -e
 # Check if REPO_ROOT is set
 if [ -z "${REPO_ROOT}" ]; then
     MAKE_EXTERNALS_SCRIPT_DIR="$(cd "$(dirname -- "$0")" && pwd -P)"
-    REPO_ROOT=$(git rev-parse --show-toplevel)
+    REPO_ROOT="$(git rev-parse --show-toplevel)"
 fi
 
 source "${REPO_ROOT}/local_env.sh"

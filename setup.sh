@@ -8,7 +8,7 @@ error_handler() {
     exit 1 # early exit with error code
 }
 
-REPO_ROOT=$(git rev-parse --show-toplevel)
+REPO_ROOT="$(git rev-parse --show-toplevel)"
 
 # Check if local_env.sh exists
 echo "Checking if local_env.sh exists..."
