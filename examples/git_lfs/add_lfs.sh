@@ -99,7 +99,7 @@ for pattern in $tracked_files; do
 done
 
 # Inform the user to commit the changes
-if [ $files_processed -eq 0 ]; then
+if [ "$files_processed" -eq 0 ]; then
   echo "No applicable files were found to process for Git LFS."
 else
   echo -e "\nAll applicable files have been removed from cache and re-added to Git LFS."

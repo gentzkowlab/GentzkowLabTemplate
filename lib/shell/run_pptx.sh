@@ -59,7 +59,7 @@ run_pptx () {
     created_files=$(comm -13 <(echo "$files_before") <(echo "$files_after"))
 
     # report on errors or success and display the output
-    if [ $return_code -ne 0 ]; then
+    if [ "$return_code" -ne 0 ]; then
         echo -e "\033[0;31mWarning\033[0m: PPTX conversion failed. See log." | tee -a "$logfile"
         echo "Error output: $output" >> "$logfile"
         exit 1
