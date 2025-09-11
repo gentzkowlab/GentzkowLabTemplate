@@ -38,4 +38,3 @@ See the Examples section of the [template instructions](https://github.com/gentz
     ```
 
 4. Run `1_data/make.sh`
-

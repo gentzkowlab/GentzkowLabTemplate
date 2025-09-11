@@ -38,7 +38,7 @@ run_shell () {
     created_files=$(comm -13 <(echo "$files_before") <(echo "$files_after"))
 
      # report on errors or success and display the output
-    if [ $return_code -ne 0 ]; then
+    if [ "$return_code" -ne 0 ]; then
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\033[0;31mWarning\033[0m: ${program} failed at ${error_time}. Check log for details." # display error warning in terminal
         echo "Error in ${program} at ${error_time}: $output" >> "${logfile}"  # log error output

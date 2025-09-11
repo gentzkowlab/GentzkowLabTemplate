@@ -4,7 +4,7 @@ set -e
 # Check if REPO_ROOT is set
 if [ -z "${REPO_ROOT}" ]; then
     MAKE_EXTERNALS_SCRIPT_DIR="$(cd "$(dirname -- "$0")" && pwd -P)"
-    REPO_ROOT="$(cd "$MAKE_EXTERNALS_SCRIPT_DIR/../../" && pwd -P)"
+    REPO_ROOT="$(git rev-parse --show-toplevel)"
 fi
 
 source "${REPO_ROOT}/local_env.sh"
@@ -19,7 +19,7 @@ fi
 # Check if there are valid paths in local_env
 create_links=false
 array_length=${#EXTERNAL_NAMES[@]}
-i=$array_start_index
+i="$array_start_index"
 while [ "$i" -lt "$((array_start_index + array_length))" ]; do
     name="${EXTERNAL_NAMES[$i]}"
     target_path="${EXTERNAL_PATHS[$i]}"
@@ -39,7 +39,7 @@ if [ "$create_links" = true ]; then
 fi
 
 # Loop through the EXTERNAL_NAMES and EXTERNAL_PATHS arrays and create symlinks
-i=$array_start_index
+i="$array_start_index"
 while [ "$i" -lt "$((array_start_index + array_length))" ]; do
     name="${EXTERNAL_NAMES[$i]}"
     target_path="${EXTERNAL_PATHS[$i]}"

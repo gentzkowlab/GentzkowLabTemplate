@@ -15,5 +15,3 @@ What are the terms or restrictions for using the data or publishing findings? Ei
 
 ### Notes
 Note anything else you think we should record about the raw data.
-
-

@@ -68,4 +68,3 @@ function city_figure(data)
   ylabel('City fuel economy (mpg)');
   saveas(gcf, '../output/figure_city.jpg');
 end
-
