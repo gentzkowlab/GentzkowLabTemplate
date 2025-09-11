@@ -63,7 +63,7 @@ run_stata() {
         rm "${programname}.log"
 
         if [ -n "$created_files" ]; then
-            echo -e "\033[0;31mWarning\033[0m: there was an error, but files where created. Check log." 
+            echo -e "\033[0;31mWarning\033[0m: there was an error, but files were created. Check log." 
             echo -e "\nWarning: There was an error, but these files were created: $created_files" >> "${logfile}"  # log created files
         fi
         exit 1 

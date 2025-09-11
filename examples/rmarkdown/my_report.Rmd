@@ -1,0 +1,36 @@
+---
+title: "O Praeclarum Titulum"
+author:
+  - "Author 1, *Affiliation*"
+  - "Author 2, *Affiliation*"
+date: "`r Sys.Date()`"
+output:
+  pdf_document: default
+geometry: margin=1in
+fontsize: 12pt
+linestretch: 1.5
+---
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = FALSE, message = FALSE, warning = FALSE, cache = FALSE)
+
+library(tidyverse)
+```
+
+# Summary
+Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+
+```{r}
+data <- read_csv("../input/mpg.csv")
+
+p <- ggplot(data, aes(x = displ, y = cty, color = year)) +
+  geom_point() +
+  xlab("Engine displacement (L)") +
+  ylab("City fuel economy (mpg)")
+
+p
+```
+
+
+
