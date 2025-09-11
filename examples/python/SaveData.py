@@ -1,4 +1,17 @@
 # -*- coding: utf-8 -*-
+"""
+================================================================================
+SaveData: Save and summarize data
+
+Arguments:
+    df (pd.DataFrame): Data to be saved.
+    keys (list): Key variable(s) that uniquely identify rows.
+    out_file (str or pathlib.PosixPath): Path to save the data (supported formats: .csv, .dta).
+    log_file (str, optional): Path to log summary statistics (default: '').
+    append (bool, optional): Append to existing log file (default: False).
+    sortbykey (bool, optional): Sort data by key variables (default: True).
+================================================================================
+"""
 
 import pandas as pd
 import hashlib
