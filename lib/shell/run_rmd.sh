@@ -87,7 +87,7 @@ run_rmd () {
     rm -f "${programname}.log" 
 
     # Report on errors or success and display the output
-    if [ $return_code -ne 0 ]; then
+    if [ "$return_code" -ne 0 ]; then
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\033[0;31mWarning\033[0m: Rendering ${program} failed at ${error_time}. Check log for details." # Display error warning in terminal
         echo "Error in rendering ${program} at ${error_time}: $output" >> "${logfile}"  # Log error output

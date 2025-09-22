@@ -31,6 +31,3 @@ p <- ggplot(data, aes(x = displ, y = cty, color = year)) +
 
 p
 ```
-
-
-

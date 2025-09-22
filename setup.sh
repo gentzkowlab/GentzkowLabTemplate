@@ -8,7 +8,7 @@ error_handler() {
     exit 1 # early exit with error code
 }
 
-REPO_ROOT="$(cd "$(dirname -- "$0")" && pwd -P)"
+REPO_ROOT="$(git rev-parse --show-toplevel)"
 
 # Check if local_env.sh exists
 echo "Checking if local_env.sh exists..."
@@ -61,3 +61,5 @@ source "${REPO_ROOT}/lib/shell/make_externals.sh"
 # Setup Completed
 echo -e "\nSetup complete."
 
+# Check setup
+source "${REPO_ROOT}/lib/shell/check_setup.sh"

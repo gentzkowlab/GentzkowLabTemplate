@@ -11,7 +11,7 @@ error_handler() {
 # Set paths
 # (Make sure REPO_ROOT is set to point to the root of the repository!)
 MAKE_SCRIPT_DIR="$(cd "$(dirname -- "$0")" && pwd -P)"
-REPO_ROOT="$(cd "$MAKE_SCRIPT_DIR/../" && pwd -P)"
+REPO_ROOT="$(git rev-parse --show-toplevel)"
 MODULE=$(basename "$MAKE_SCRIPT_DIR")
 LOGFILE="${MAKE_SCRIPT_DIR}/output/make.log"
 
@@ -33,7 +33,7 @@ mkdir -p "${MAKE_SCRIPT_DIR}/output"
 
 # Add symlink input files to local /input/ directory
 # (Make sure get_inputs.sh is updated to pull in all needed input files!)
-(   cd ${MAKE_SCRIPT_DIR}
+(   cd "${MAKE_SCRIPT_DIR}"
     source "${MAKE_SCRIPT_DIR}/get_inputs.sh"
 )
 
@@ -50,4 +50,3 @@ run_shell my_shell_script.sh "${LOGFILE}" || exit 1
 ) || false
 
 echo -e "\nmake.sh finished at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${LOGFILE}"
-

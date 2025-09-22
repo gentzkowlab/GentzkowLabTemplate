@@ -3,7 +3,7 @@
 # Check if REPO_ROOT is set
 if [ -z "${REPO_ROOT}" ]; then
     CHECK_SETUP_SCRIPT_DIR="$(cd "$(dirname -- "$0")" && pwd -P)"
-    REPO_ROOT="$(cd "$CHECK_SETUP_SCRIPT_DIR/../../" && pwd -P)"
+    REPO_ROOT="$(git rev-parse --show-toplevel)"
 fi
 
 # Check if local_env.sh exists
@@ -35,4 +35,3 @@ fi
 
 # Setup Completed
 echo "Setup check complete."
-
