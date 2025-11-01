@@ -42,7 +42,7 @@ for entry in "${INPUT_FILES[@]}"; do
   fi
 
   # Create link if the source exists
-  if [[ -e "${src_path}" ]]; then
+  if [[ -e "${MAKE_SCRIPT_DIR}/${src_path}" ]]; then
     ln -sfn "../${src_path}" "${MAKE_SCRIPT_DIR}/input/${dest_name}"
     echo "Linked: ${src_path} -> input/${dest_name}"
     links_created=true
