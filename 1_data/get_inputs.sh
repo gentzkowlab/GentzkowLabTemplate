@@ -12,7 +12,7 @@
 #       ../examples/inputs_for_examples/mpg.csv
 #   - Directory:
 #       ../examples/inputs_for_examples
-#   - (Optional) Path with custom link name:
+#   - Path with custom link name:
 #       "../examples/inputs_for_examples -> examples"
 # ==============================================================================
 INPUT_FILES=(
