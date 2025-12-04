@@ -53,7 +53,7 @@ done
 
 # Output the result
 if [[ "$links_created" == true ]]; then
-  echo -e "\nAll input links were created!"
+  echo -e "\nInput links were created!"
 else
     echo -e "\n\033[0;34mNote:\033[0m There were no input links to create in \033[0;34mget_inputs.sh\033[0m."
 fi
