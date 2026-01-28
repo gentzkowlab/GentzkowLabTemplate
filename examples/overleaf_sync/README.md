@@ -49,7 +49,7 @@ See the Examples section of the [template instructions](https://github.com/gentz
    git push
    ```
 
-9. Add your LaTeX files (`.tex`, `.bib`, etc.) to the repository root. These files will be synced to Overleaf automatically.
+9. Add your LaTeX files (`.tex`, `.bib`, etc.) to the repository root. These files will be synced to Overleaf automatically (see below for instructions on how to sync)
 
 ### Requirements
 
@@ -57,12 +57,15 @@ See the Examples section of the [template instructions](https://github.com/gentz
 
 ### Important notes
 
-* **Nobody should ever edit files in the `input/` directory within Overleaf.** Files in the `input/` directory (figures, tables, etc.) are automatically synced from your analysis repository using `setup/sync_inputs.sh`. If you edit them in Overleaf, your changes will be overwritten the next time you run the sync script.
+* **Nobody should ever edit files in the `input/` directory within Overleaf.** Files in the `input/` directory (figures, tables, etc.) are automatically synced from your analysis repository using `setup/sync_inputs.sh`. If you edit them in Overleaf, your changes will be overwritten the next time you run the sync script. 
+* Before each update of `inputs.spec`, remember to run `git pull` in the terminal first, so as to always ensure the paper repository and the Overleaf project are synced.
 * **When working on branches, be careful about pushing output files with the same name from different branches.** You should not try to sync files with the same filename from multiple branches (e.g., `figure.pdf` from `main` and `figure.pdf` from branch `XX`). This will cause an error. If you want to see branch-specific output in Overleaf, either give it a branch-specific name (e.g., `figure_XX.pdf`) or make sure the document with the same name is not also being pulled from `main` in your `setup/inputs.spec`.
 * Edit LaTeX source files (`.tex`, `.bib`) in Overleaf, which will sync to GitHub automatically.
 * Generate figures and tables in your analysis repository, then run `setup/sync_inputs.sh` in your paper repository to sync them.
 * The sync script deletes the entire `input/` directory at the start to ensure all inputs are fresh. If you need to manually add files that aren't from your analysis repository (such as screenshots from elsewhere), place them in a `raw/` directory instead of `input/`.
 * To add new input files, edit `setup/inputs.spec` following the format documented in that file, then run `./setup/sync_inputs.sh`.
+* Remember to commit your changes after running `./setup/sync_inputs.sh`.
+* Once your inputs are commited to the paper repository, navigate to Overleaf, click `Integrations`, and select `pull GitHub changes into Overleaf`. This should automatically sync your Overleaf project with the most recent commit of the paper repository
 
 ### Overleaf documentation
 
