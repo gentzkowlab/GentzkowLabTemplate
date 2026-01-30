@@ -69,8 +69,8 @@ run_rmd () {
     start_time=$(date '+%Y-%m-%d %H:%M:%S')
     echo -e "\nRendering ${program} started at ${start_time}" | tee -a "${logfile}"
 
-    # Run the R Markdown rendering command and capture both stdout and stderr
-    output=$(${rCmd} -e "rmarkdown::render('${program}', output_dir='${OUTPUT_DIR}', clean=TRUE)" 2>&1)
+    # Run the R Markdown rendering command and write stdout and stderr directly to the log file
+    ${rCmd} -e "rmarkdown::render('${program}', output_dir='${OUTPUT_DIR}', clean=TRUE)" >> "${logfile}" 2>&1
     return_code=$?  # Capture the exit status 
 
     # Capture the content of the output folder after running the script
@@ -90,7 +90,7 @@ run_rmd () {
     if [ "$return_code" -ne 0 ]; then
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\033[0;31mWarning\033[0m: Rendering ${program} failed at ${error_time}. Check log for details." # Display error warning in terminal
-        echo "Error in rendering ${program} at ${error_time}: $output" >> "${logfile}"  # Log error output
+        echo "Error in rendering ${program} at ${error_time}" >> "${logfile}"  # Log error output
         if [ -n "$created_files" ]; then
             echo -e "\033[0;31mWarning\033[0m: An error occurred, but files were created. Check log." 
             echo -e "\nWarning: An error occurred, but these files were created: $created_files" >> "${logfile}"  # Log created files
@@ -98,7 +98,6 @@ run_rmd () {
         exit 1 
     else
         echo "Rendering ${program} finished successfully at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
-        echo "Output: $output" >> "${logfile}"  # Log output
         
         if [ -n "$created_files" ]; then
             echo -e "\nThe following files were created during rendering:" >> "${logfile}" 

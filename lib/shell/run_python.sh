@@ -38,8 +38,8 @@ run_python () {
     start_time=$(date '+%Y-%m-%d %H:%M:%S')
     echo -e "\nScript ${program} in ${pythonCmd} started at ${start_time}" | tee -a "${logfile}"
 
-    # run command and capture both stdout and stderr in the output variable
-    output=$(${pythonCmd} -u "${program}" 2>&1)
+    # run command and write stdout and stderr directly to the log file
+    ${pythonCmd} -u "${program}" >> "${logfile}" 2>&1
     return_code=$?  # capture the exit status 
 
     # capture the content of output folder after running the script
@@ -52,7 +52,7 @@ run_python () {
     if [ "$return_code" -ne 0 ]; then
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\033[0;31mWarning\033[0m: ${program} failed at ${error_time}. Check log for details." # display error warning in terminal
-        echo "Error in ${program} at ${error_time}: $output" >> "${logfile}"  # log error output
+        echo "Error in ${program} at ${error_time}" >> "${logfile}"  # log error output
         if [ -n "$created_files" ]; then
             echo -e "\033[0;31mWarning\033[0m: there was an error, but files were created. Check log." 
             echo -e "\nWarning: There was an error, but these files were created: $created_files" >> "${logfile}"  # log created files
@@ -60,7 +60,6 @@ run_python () {
         exit 1
     else
         echo "Script ${program} finished successfully at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
-        echo "Output: $output" >> "${logfile}"  # log output
         
         if [ -n "$created_files" ]; then
         echo -e "\nThe following files were created in ${program}:"  >> "${logfile}" 
