@@ -1,0 +1,17 @@
+---
+title: "Forever Test"
+output: html_document
+---
+
+```{r}
+cat("Rmarkdown: starting\n")
+Sys.sleep(10)
+
+cat("Rmarkdown: after 10 seconds\n")
+Sys.sleep(10)
+
+cat("Rmarkdown: after 20 seconds\n")
+Sys.sleep(1)
+
+cat("Rmarkdown: done\n")
+```
