@@ -48,8 +48,8 @@ run_pptx () {
     start_time=$(date '+%Y-%m-%d %H:%M:%S')
     echo -e "\nConverting $(basename "$pptx_file") to PDF at $start_time" | tee -a "$logfile"
 
-    # run command and capture both stdout and stderr in the output variable
-    output=$(osascript "$scpt" "$pptx_file" "$pdf_path" 2>&1)
+    # run command and write stdout and stderr directly to the log file
+    osascript "$scpt" "$pptx_file" "$pdf_path" >> "$logfile" 2>&1
     return_code=$?
 
     # capture the content of output folder after running the script
@@ -61,11 +61,9 @@ run_pptx () {
     # report on errors or success and display the output
     if [ "$return_code" -ne 0 ]; then
         echo -e "\033[0;31mWarning\033[0m: PPTX conversion failed. See log." | tee -a "$logfile"
-        echo "Error output: $output" >> "$logfile"
         exit 1
     else
         echo "PPTX converted successfully at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "$logfile"
-        echo "$output" >> "$logfile"
         if [ -n "$created_files" ]; then
             echo -e "\nThe following files were created:" >> "$logfile"
             echo "$created_files" >> "$logfile"
