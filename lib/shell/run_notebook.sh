@@ -46,10 +46,10 @@ run_notebook () {
     echo -e "\nNotebook ${program} in ${jupyterCmd} started at ${start_time}" | tee -a "${logfile}"
 
     # execute notebook headlessly into OUTPUT_DIR as html
-    ${jupyterCmd} nbconvert --to html --execute "${program}" \
+    exec_output=$(${jupyterCmd} nbconvert --to html --execute "${program}" \
     --ExecutePreprocessor.timeout=-1 \
     --ExecutePreprocessor.allow_errors=False \
-    --output "${programname}" --output-dir "${OUTPUT_DIR}" >> "${logfile}" 2>&1
+    --output "${programname}" --output-dir "${OUTPUT_DIR}" 2>&1)
     rc=$?
 
 
@@ -67,7 +67,10 @@ run_notebook () {
     if [ $rc -ne 0 ]; then
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\033[0;31mError\033[0m: ${program} failed at ${error_time}. Check log for details."
-        echo "Error in ${program} at ${error_time}" >> "${logfile}"
+        {
+            echo "Error in ${program} at ${error_time}:"
+            echo "$exec_output"
+        } >> "${logfile}"
 
         if [ -n "$created_files" ]; then
             echo -e "\033[0;31mWarning\033[0m: there was an error, but files were created. Check log."
@@ -75,6 +78,8 @@ run_notebook () {
         fi
         exit 1
     else
+        { echo "$exec_output"; } >> "${logfile}"
+
         echo "Notebook ${program} finished successfully at $(date '+%Y-%m-%d %H:%M:%S')" | tee -a "${logfile}"
 
         if [ -n "$created_files" ]; then
