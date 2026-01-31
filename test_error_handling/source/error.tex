@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage{amsmath}
+
+\title{Test Document with Error}
+\author{Test}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\section{Introduction}
+
+This document will fail to compile due to an intentional error.
+
+Here is some normal text that compiles fine.
+
+\section{Error Section}
+
+This section contains an undefined command that will cause compilation to fail:
+
+% Intentional error - undefined command
+\thisCommandDoesNotExist{This will cause an error}
+
+More text that would appear if the error didn't stop compilation.
+
+\section{Conclusion}
+
+This section should never render because of the error above.
+
+\end{document}

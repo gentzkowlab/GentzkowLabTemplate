@@ -1,0 +1,47 @@
+---
+title: "Test R Markdown with Error"
+author: "Test"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+# Introduction
+
+This R Markdown document will fail during rendering due to an intentional error.
+
+## Initial Output
+
+```{r setup}
+cat("R Markdown rendering started...\n")
+cat("This chunk executes successfully\n")
+```
+
+## Progressive Output
+
+```{r output}
+cat("\nOutputting multiple lines to test real-time logging:\n")
+for (i in 1:5) {
+    cat(sprintf("  Line %d of output\n", i))
+    Sys.sleep(0.5)
+}
+```
+
+## Error Section
+
+This section contains code that will fail:
+
+```{r error}
+cat("\nNow encountering an error...\n")
+Sys.sleep(1)
+
+# Intentional error
+stop("ERROR: Something went wrong in R Markdown!")
+```
+
+## Conclusion
+
+This section should never render because of the error above.
+
+```{r never_executed}
+cat("This line should never be reached\n")
+```
