@@ -16,7 +16,7 @@ run_matlab () {
     fi
 
     # check if the command exists before running, log error if does not
-    if ! command -v matlab &> /dev/null; then
+    if ! command -v "$matlabCmd" &> /dev/null; then
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\033[0;31mProgram error\033[0m at ${error_time}: MATLAB not found. Make sure command line usage is properly set up."
         echo "Program Error at ${error_time}: MATLAB not found." >> "${logfile}"
