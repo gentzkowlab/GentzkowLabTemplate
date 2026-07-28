@@ -7,6 +7,18 @@ See the Examples section of the [template instructions](https://github.com/gentz
 * `wrangle_data.do` is an example script to save cleaned data.
 * `analyze_data.do` is an example script to create a regression table and plots.
 
+### Stata package dependencies
+
+Stata scripts run through `run_stata` use only official Stata commands and the
+packages committed under `/lib/stata/ado`. See `/lib/stata/README.md` for the
+dependency workflow. Running a `.do` file directly does not apply this
+isolation.
+
+The bundled `save_data.ado` file is an optional project-authored command. To use
+it in a project, move it to `/lib/stata/ado/s/save_data.ado` and commit it there.
+Keeping a single tracked copy prevents the example and the installed command
+from diverging.
+
 ### Steps to set up the Stata example for cleaning data
 
 1. Place `wrangle_data.do` in `1_data/source/`

@@ -1,0 +1,28 @@
+* 00000001
+*! version 1.0.0
+* Do not erase or edit this file
+* It is used by Stata to track the ado and help
+* files you have installed.
+
+S https://raw.githubusercontent.com/benjann/estout/2c6beb2df405a1aa8940e0432a4a53810eca8e60
+N estout.pkg
+D 28 Jul 2026
+U 1
+d estout: module to make regression tables
+d 
+d Author: Ben Jann, University of Bern, ben.jann@unibe.ch
+d 
+d Distribution-Date: 20260413
+f _/_eststo.ado
+f _/_eststo.hlp
+f e/estadd.ado
+f e/estadd.hlp
+f e/estout.ado
+f e/estout.hlp
+f e/estpost.ado
+f e/estpost.hlp
+f e/eststo.ado
+f e/eststo.hlp
+f e/esttab.ado
+f e/esttab.hlp
+e

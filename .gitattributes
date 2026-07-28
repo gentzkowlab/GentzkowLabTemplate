@@ -1,2 +1,15 @@
 *.log merge=binary
 * text=auto
+
+# Preserve Stata's generated package tracker.
+lib/stata/ado/stata.trk -text -whitespace
+
+# Preserve the installed bytes of the third-party estout package and exclude
+# its upstream code from repository language statistics.
+lib/stata/ado/_/_eststo.* -text -whitespace linguist-vendored
+lib/stata/ado/e/estadd.* -text -whitespace linguist-vendored
+lib/stata/ado/e/estout.* -text -whitespace linguist-vendored
+lib/stata/ado/e/estout_mystyle.def -text -whitespace linguist-vendored
+lib/stata/ado/e/estpost.* -text -whitespace linguist-vendored
+lib/stata/ado/e/eststo.* -text -whitespace linguist-vendored
+lib/stata/ado/e/esttab.* -text -whitespace linguist-vendored
