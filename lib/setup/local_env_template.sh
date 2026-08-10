@@ -14,6 +14,7 @@ export rCmd="Rscript"
 export matlabCmd="matlab"
 export lyxCmd="lyx"
 export juliaCmd="julia"
+export pptxRefreshCmd="pptx-refresh"
 
 # Add other local settings required for your repository here
 # export myLocalSetting="my_setting_value"
