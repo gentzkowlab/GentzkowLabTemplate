@@ -31,6 +31,33 @@ if [ ! -f "${REPO_ROOT}/local_env.sh" ]; then
         echo -e "\033[0;34mNote:\033[0m: local_env.sh already exists."
 fi
 
+# Install pptx-refresh into the Python interpreter configured in local_env.sh
+source "${REPO_ROOT}/local_env.sh"
+PYTHON_SETUP_CMD="${pythonCmd:-python3}"
+
+echo -e "\nSetting up pptx-refresh with ${PYTHON_SETUP_CMD}..."
+if ! command -v "${PYTHON_SETUP_CMD}" >/dev/null 2>&1; then
+    echo -e "\033[0;31mProgram error\033[0m: ${PYTHON_SETUP_CMD} not found."
+    echo "Set pythonCmd in local_env.sh to Python 3.10 or newer, then re-run setup.sh."
+    exit 1
+fi
+
+if ! "${PYTHON_SETUP_CMD}" -c 'import sys; raise SystemExit(sys.version_info < (3, 10))'; then
+    echo -e "\033[0;31mProgram error\033[0m: Python 3.10 or newer is required."
+    exit 1
+fi
+
+if ! "${PYTHON_SETUP_CMD}" -m pip --version >/dev/null 2>&1; then
+    echo -e "\033[0;31mProgram error\033[0m: pip is unavailable for ${PYTHON_SETUP_CMD}."
+    exit 1
+fi
+
+"${PYTHON_SETUP_CMD}" -m pip install --disable-pip-version-check \
+    "pptx-refresh==0.1.0"
+"${PYTHON_SETUP_CMD}" -m pip check
+"${PYTHON_SETUP_CMD}" -m pptx_refresh --version
+echo "pptx-refresh is ready."
+
 # Run get_inputs.sh scripts
 echo -e "\nNow, we will loop through the repository and run scripts to add input files to each module."
 echo -e "\033[0;34mPlease choose:\033[0m Would you like to run all get_inputs.sh scripts in the repository? (y/n): "

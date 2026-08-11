@@ -1,2 +1,5 @@
 *.log merge=binary
 * text=auto
+
+# Store the pptx-refresh example deck as a Git LFS object.
+examples/pptx_refresh/slides.pptx filter=lfs diff=lfs merge=lfs -text

@@ -16,7 +16,7 @@ run_python () {
     fi
 
     # check if the command exists before running, log error if does not
-    if ! command -v ${pythonCmd} &> /dev/null; then
+    if ! command -v "${pythonCmd}" &> /dev/null; then
         error_time=$(date '+%Y-%m-%d %H:%M:%S')
         echo -e "\n\033[0;31mProgram error\033[0m at ${error_time}: ${pythonCmd} not found. Make sure command line usage is properly set up." 
         echo "Program Error at ${error_time}: ${pythonCmd} not found." >> "${logfile}"
@@ -39,7 +39,7 @@ run_python () {
     echo -e "\nScript ${program} in ${pythonCmd} started at ${start_time}" | tee -a "${logfile}"
 
     # run command and write stdout and stderr directly to the log file
-    ${pythonCmd} -u "${program}" >> "${logfile}" 2>&1
+    "${pythonCmd}" -u "${program}" >> "${logfile}" 2>&1
     return_code=$?  # capture the exit status 
 
     # capture the content of output folder after running the script
