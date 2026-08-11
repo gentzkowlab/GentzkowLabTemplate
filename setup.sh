@@ -31,11 +31,12 @@ if [ ! -f "${REPO_ROOT}/local_env.sh" ]; then
         echo -e "\033[0;34mNote:\033[0m: local_env.sh already exists."
 fi
 
-# Install pptx-refresh into the Python interpreter configured in local_env.sh
+# Install the PowerPoint workflow packages into the Python interpreter
+# configured in local_env.sh
 source "${REPO_ROOT}/local_env.sh"
 PYTHON_SETUP_CMD="${pythonCmd:-python3}"
 
-echo -e "\nSetting up pptx-refresh with ${PYTHON_SETUP_CMD}..."
+echo -e "\nSetting up PowerPoint workflow packages with ${PYTHON_SETUP_CMD}..."
 if ! command -v "${PYTHON_SETUP_CMD}" >/dev/null 2>&1; then
     echo -e "\033[0;31mProgram error\033[0m: ${PYTHON_SETUP_CMD} not found."
     echo "Set pythonCmd in local_env.sh to Python 3.10 or newer, then re-run setup.sh."
@@ -53,10 +54,14 @@ if ! "${PYTHON_SETUP_CMD}" -m pip --version >/dev/null 2>&1; then
 fi
 
 "${PYTHON_SETUP_CMD}" -m pip install --disable-pip-version-check \
-    "pptx-refresh==0.1.0"
+    "pptx-refresh==0.1.0" \
+    "tex2pptx==0.1.1"
 "${PYTHON_SETUP_CMD}" -m pip check
 "${PYTHON_SETUP_CMD}" -m pptx_refresh --version
-echo "pptx-refresh is ready."
+"${PYTHON_SETUP_CMD}" -m tex2pptx --help >/dev/null
+"${PYTHON_SETUP_CMD}" -c \
+    'from importlib.metadata import version; print("tex2pptx " + version("tex2pptx"))'
+echo "PowerPoint workflow packages are ready."
 
 # Run get_inputs.sh scripts
 echo -e "\nNow, we will loop through the repository and run scripts to add input files to each module."

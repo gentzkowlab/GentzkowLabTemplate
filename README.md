@@ -17,18 +17,11 @@ To get started, follow the steps below. For complete documentation, see the [Gen
     cd YourRepoName
     ```
 
-2. Run the setup script to create the local settings file (`local_env.sh`),
-   install `pptx-refresh` into the existing Python interpreter configured by
-   `pythonCmd`, verify local executables, and populate input files:
+2. Run the setup script to create the local settings file (`local_env.sh`), verify that local executables are correctly installed, and populate input files:
 
     ```sh
     bash setup.sh
     ```
-
-    The setup requires Python 3.10 or newer; it does not create or activate a
-    Python environment. To use an existing virtual or Conda environment, edit
-    `pythonCmd` in `local_env.sh` when setup prompts you, or edit it later and
-    rerun `setup.sh`.
 
 3. Run the `run_all.sh` script to check that the template runs without error:
     ```
