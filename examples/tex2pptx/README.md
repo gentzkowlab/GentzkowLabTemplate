@@ -5,13 +5,20 @@ convert a Beamer source file into an editable PowerPoint presentation.
 
 ## Setup
 
-From the repository root, run:
+Enable this optional package in the machine-specific `local_env.sh`:
+
+```bash
+export installTex2Pptx="true"
+```
+
+If the file does not exist yet, setup creates it and pauses so you can make
+this change before continuing. From the repository root, run:
 
 ```bash
 bash setup.sh
 ```
 
-The setup installs the pinned `tex2pptx` version into the existing Python
+Setup then installs the pinned `tex2pptx` version into the existing Python
 interpreter configured by `pythonCmd` in the generated, Git-ignored
 `local_env.sh`. It does not create or activate a Python environment.
 

@@ -14,13 +14,21 @@ instructions:
 
 ## Setup
 
-From the repository root, run the template setup command. It installs the
-pinned `pptx-refresh` version into the existing Python interpreter configured
-by `pythonCmd` in `local_env.sh`:
+Enable this optional package in the machine-specific `local_env.sh`:
+
+```bash
+export installPptxRefresh="true"
+```
+
+If the file does not exist yet, setup creates it and pauses so you can make
+this change before continuing. From the repository root, run:
 
 ```bash
 bash setup.sh
 ```
+
+Setup then installs the pinned `pptx-refresh` version into the existing Python
+interpreter configured by `pythonCmd` in `local_env.sh`.
 
 The generated, Git-ignored `local_env.sh` is a machine-specific settings file;
 it does not create or activate a Python environment. It configures `python3`

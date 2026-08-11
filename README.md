@@ -23,6 +23,19 @@ To get started, follow the steps below. For complete documentation, see the [Gen
     bash setup.sh
     ```
 
+    The PowerPoint workflow packages are optional and skipped by default. To
+    use either workflow, set its installer option in the generated,
+    Git-ignored `local_env.sh` when setup prompts you, or edit the file and
+    rerun setup:
+
+    ```sh
+    export installPptxRefresh="true"
+    export installTex2Pptx="true"
+    ```
+
+    Enable only the workflows needed on your machine. Their complete build
+    workflows require macOS and Microsoft PowerPoint.
+
 3. Run the `run_all.sh` script to check that the template runs without error:
     ```
     bash run_all.sh

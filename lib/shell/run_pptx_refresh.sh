@@ -39,7 +39,7 @@ run_pptx_refresh() {
         return 1
     fi
     if ! "${python_cmd}" -c 'import pptx_refresh' >/dev/null 2>&1; then
-        echo -e "\033[0;31mProgram error\033[0m: pptx-refresh is not installed for ${python_cmd}. Run setup.sh." | tee -a "${logfile}"
+        echo -e "\033[0;31mProgram error\033[0m: pptx-refresh is not installed for ${python_cmd}. Set installPptxRefresh=\"true\" in local_env.sh and rerun setup.sh." | tee -a "${logfile}"
         return 1
     fi
     if [ ! -f "${source_path}" ]; then
