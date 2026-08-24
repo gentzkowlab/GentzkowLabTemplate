@@ -5,12 +5,15 @@ declared inputs with the `pptx-refresh` package installed by the template
 setup. The included `slides.pptx` is a ready-to-run example with visible
 instructions:
 
-- Slide 1 contains a managed picture. The source deck embeds
-  `figure_hwy.jpg`, while its Selection Pane name and Alt Text declare
-  `example_inputs/figure_city.jpg` as the refresh target.
-- Slide 2 contains an ungrouped native shape whose metadata declares
-  `example_inputs/table_reg.tex`. Refreshing replaces that shape with a
-  rendered table image.
+- Slide 1 contains a managed figure frame backed by `figure_hwy.jpg`. Its Alt
+  Text declares `example_inputs/figure_city.jpg` as the refresh target, so the
+  build replaces the frame with the updated figure.
+- Slide 2 contains an ungrouped native shape whose Alt Text declares
+  `example_inputs/table_reg.tex` as a rendered table. Refreshing replaces that
+  shape with a rendered table image.
+
+Both declarations live in Alt Text. This is the canonical declaration workflow
+for figures and rendered tables.
 
 ## Setup
 
@@ -54,18 +57,19 @@ Copy the example presentation into a slides module:
 cp examples/pptx_refresh/slides.pptx 3_slides/source/slides.pptx
 ```
 
-For your own presentation, give each managed object a unique Selection Pane
-name beginning with `AUTO:` and put its source path on the first line of Alt
-Text. The source path is relative to the module's `input/` directory, for
-example:
+For your own presentation, select an ungrouped picture, text box, ordinary
+shape, or native table and put an `AUTO:` declaration in its Alt Text. The
+source path is relative to the module's `input/` directory, for example:
 
 ```text
-Selection Pane name:
-AUTO:figures/result.pdf
-
 Alt Text:
-figures/result.pdf
+AUTO: figures/result.pdf
+fit=preserve
+aspect_ratio_change=warn
 ```
+
+The `AUTO:` prefix is case-sensitive. A visible `AUTO:` declaration inside an
+ordinary text box or shape is also supported.
 
 Declare the input in `3_slides/get_inputs.sh`. The usual template mechanism may
 create either file or directory symlinks:
@@ -88,6 +92,15 @@ The runner derives the module from `LOGFILE`, reads managed sources through
 publishes the atomic bundle under `3_slides/output/pptx-refresh/`. Exit status
 `2` means publication succeeded but the report contains items to review; the
 runner logs that warning without failing the module.
+
+The runner passes the presentation, input, and output paths explicitly, so it
+does not require a project configuration file. To use `pptx-refresh` directly
+outside the template runner, a project can instead create persistent settings
+once with:
+
+```bash
+python3 -m pptx_refresh init 3_slides
+```
 
 ## Requirements
 
