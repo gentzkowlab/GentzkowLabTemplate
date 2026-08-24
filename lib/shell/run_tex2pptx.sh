@@ -13,15 +13,21 @@ run_tex2pptx() {
         return 1
     fi
 
-    local output_dir
-    output_dir="$(dirname -- "${logfile}")"
-    if [ ! -d "${output_dir}" ]; then
-        echo "Program error: output directory ${output_dir} not found."
+    local module_output_dir
+    module_output_dir="$(dirname -- "${logfile}")"
+    if [ ! -d "${module_output_dir}" ]; then
+        echo "Program error: output directory ${module_output_dir} not found."
         return 1
     fi
 
     local module_dir
-    module_dir="$(cd "${output_dir}/.." && pwd -P)" || return 1
+    module_dir="$(cd "${module_output_dir}/.." && pwd -P)" || return 1
+
+    local output_dir="${module_output_dir}/tex2pptx"
+    if ! mkdir -p "${output_dir}"; then
+        echo "Program error: could not create tex2pptx output directory ${output_dir}." | tee -a "${logfile}"
+        return 1
+    fi
 
     local source_path
     if [[ "${tex_file}" = /* ]]; then
