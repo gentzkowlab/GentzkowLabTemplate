@@ -25,7 +25,6 @@ echo -e "\n\nMaking module \033[35m${MODULE}\033[0m with shell ${SHELL}"
 source "${REPO_ROOT}/local_env.sh"
 source "${REPO_ROOT}/lib/shell/run_shell.sh"
 source "${REPO_ROOT}/lib/shell/run_pptx_refresh.sh"
-source "${REPO_ROOT}/lib/shell/run_tex2pptx.sh"
 #source "${REPO_ROOT}/lib/shell/run_xxx.sh"
 
 # Clear output directory

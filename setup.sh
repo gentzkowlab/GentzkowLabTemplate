@@ -31,31 +31,23 @@ if [ ! -f "${REPO_ROOT}/local_env.sh" ]; then
         echo -e "\033[0;34mNote:\033[0m: local_env.sh already exists."
 fi
 
-# Optionally install the PowerPoint workflow packages into the Python
+# Optionally install pptx-refresh into the Python
 # interpreter configured in local_env.sh
 source "${REPO_ROOT}/local_env.sh"
 PYTHON_SETUP_CMD="${pythonCmd:-python3}"
 INSTALL_PPTX_REFRESH="${installPptxRefresh:-false}"
-INSTALL_TEX2PPTX="${installTex2Pptx:-false}"
 
 if [ "${INSTALL_PPTX_REFRESH}" != "true" ] && [ "${INSTALL_PPTX_REFRESH}" != "false" ]; then
     echo -e "\033[0;31mProgram error\033[0m: installPptxRefresh must be \"true\" or \"false\" in local_env.sh."
-    exit 1
-fi
-if [ "${INSTALL_TEX2PPTX}" != "true" ] && [ "${INSTALL_TEX2PPTX}" != "false" ]; then
-    echo -e "\033[0;31mProgram error\033[0m: installTex2Pptx must be \"true\" or \"false\" in local_env.sh."
     exit 1
 fi
 
 if [ "${INSTALL_PPTX_REFRESH}" = "false" ]; then
     echo -e "\nSkipping optional pptx-refresh installation. Set installPptxRefresh=\"true\" in local_env.sh to enable it."
 fi
-if [ "${INSTALL_TEX2PPTX}" = "false" ]; then
-    echo -e "\nSkipping optional tex2pptx installation. Set installTex2Pptx=\"true\" in local_env.sh to enable it."
-fi
 
-if [ "${INSTALL_PPTX_REFRESH}" = "true" ] || [ "${INSTALL_TEX2PPTX}" = "true" ]; then
-    echo -e "\nSetting up enabled PowerPoint workflow packages with ${PYTHON_SETUP_CMD}..."
+if [ "${INSTALL_PPTX_REFRESH}" = "true" ]; then
+    echo -e "\nSetting up pptx-refresh with ${PYTHON_SETUP_CMD}..."
     if ! command -v "${PYTHON_SETUP_CMD}" >/dev/null 2>&1; then
         echo -e "\033[0;31mProgram error\033[0m: ${PYTHON_SETUP_CMD} not found."
         echo "Set pythonCmd in local_env.sh to Python 3.10 or newer, then re-run setup.sh."
@@ -72,27 +64,12 @@ if [ "${INSTALL_PPTX_REFRESH}" = "true" ] || [ "${INSTALL_TEX2PPTX}" = "true" ];
         exit 1
     fi
 
-    POWERPOINT_WORKFLOW_PACKAGES=()
-    if [ "${INSTALL_PPTX_REFRESH}" = "true" ]; then
-        POWERPOINT_WORKFLOW_PACKAGES+=("pptx-refresh==0.1.1")
-    fi
-    if [ "${INSTALL_TEX2PPTX}" = "true" ]; then
-        POWERPOINT_WORKFLOW_PACKAGES+=("tex2pptx==0.1.3")
-    fi
-
     "${PYTHON_SETUP_CMD}" -m pip install --disable-pip-version-check \
-        "${POWERPOINT_WORKFLOW_PACKAGES[@]}"
+        "pptx-refresh==0.1.1"
     "${PYTHON_SETUP_CMD}" -m pip check
 
-    if [ "${INSTALL_PPTX_REFRESH}" = "true" ]; then
-        "${PYTHON_SETUP_CMD}" -m pptx_refresh --version
-    fi
-    if [ "${INSTALL_TEX2PPTX}" = "true" ]; then
-        "${PYTHON_SETUP_CMD}" -m tex2pptx --help >/dev/null
-        "${PYTHON_SETUP_CMD}" -c \
-            'from importlib.metadata import version; print("tex2pptx " + version("tex2pptx"))'
-    fi
-    echo "Enabled PowerPoint workflow packages are ready."
+    "${PYTHON_SETUP_CMD}" -m pptx_refresh --version
+    echo "pptx-refresh is ready."
 fi
 
 # Run get_inputs.sh scripts

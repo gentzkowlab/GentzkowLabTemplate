@@ -15,10 +15,9 @@ export matlabCmd="matlab"
 export lyxCmd="lyx"
 export juliaCmd="julia"
 
-# Optional PowerPoint workflow packages. Set either value to "true" and rerun
-# setup.sh to install that package into the interpreter configured by pythonCmd.
+# Optional PowerPoint refresh workflow. Set this value to "true" and rerun
+# setup.sh to install pptx-refresh into the interpreter configured by pythonCmd.
 export installPptxRefresh="false"
-export installTex2Pptx="false"
 
 # Add other local settings required for your repository here
 # export myLocalSetting="my_setting_value"
