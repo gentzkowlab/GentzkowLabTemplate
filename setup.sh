@@ -77,7 +77,7 @@ if [ "${INSTALL_PPTX_REFRESH}" = "true" ] || [ "${INSTALL_TEX2PPTX}" = "true" ];
         POWERPOINT_WORKFLOW_PACKAGES+=("pptx-refresh==0.1.1")
     fi
     if [ "${INSTALL_TEX2PPTX}" = "true" ]; then
-        POWERPOINT_WORKFLOW_PACKAGES+=("tex2pptx==0.1.2")
+        POWERPOINT_WORKFLOW_PACKAGES+=("tex2pptx==0.1.3")
     fi
 
     "${PYTHON_SETUP_CMD}" -m pip install --disable-pip-version-check \
